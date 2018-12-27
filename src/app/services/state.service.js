@@ -3,8 +3,13 @@
 
 import { pushStateLocationPlugin } from "@uirouter/react";
 
-import Home from "../components/home/Home";
-
+import Home from "../states/home/Home";
+import About from "../states/about/About";
+import Contact from "../states/contact/Contact";
+import What from "../states/what/What";
+import Apps from "../states/apps/Apps";
+import Hire from "../states/hire/Hire";
+import Chris from "../states/people/chris/Chris";
 
 var statename;
 
@@ -31,6 +36,36 @@ export var states = [
       setStateName("home");
     }
   }]
+},
+{
+  name: 'about',
+  url: '/about',
+  component: About
+},
+{
+  name: 'what',
+  url: '/about/whatwedo',
+  component: What
+},
+{
+  name: 'what.apps',
+  url: '/apps',
+  component: Apps
+},
+{
+  name: 'what.hire',
+  url: '/hire',
+  component: Hire
+},
+{
+  name: 'contact',
+  url: '/about/contact',
+  component: Contact
+},
+{
+  name: 'chris',
+  url: '/about/contact/chris',
+  component: Chris
 }
 ]
 

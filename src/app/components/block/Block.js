@@ -61,18 +61,18 @@ var chooseElem = function ($$info) {
       )
 
   }
-  else if ($$info.id == "end") {
+  // else if ($$info.id == "end") {
 
-      return (
+  //     return (
 
-              <div className='absolute top10 left10 width-200 height-50' id={getId("contact", $$info)}>
-                <div className='absolute width height white-back rounded10 pointer'>
-                  <div><div className='absolute font-40 center'>contact</div></div>
-                </div>
-              </div>
+  //             <div className='absolute top10 left10 width-200 height-50' id={getId("contact", $$info)}>
+  //               <div className='absolute width height white-back rounded10 pointer'>
+  //                 <div><div className='absolute font-40 center'>contact</div></div>
+  //               </div>
+  //             </div>
 
-      )
-  }
+  //     )
+  // }
 
 
 }
@@ -115,7 +115,7 @@ class Block extends Component {
 
 
 
-          <div className="relative width height-600 white-back cutoff noedge" id={getId('sep', info)}>
+          <div className="relative width height-400 white-back cutoff noedge" id={getId('sep', info)}>
 
               <div className="relative width60 font-30 text-center center" id={getId('desc', info)}>{getHtml(info.description)}</div>
 

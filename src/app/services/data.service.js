@@ -1,9 +1,7 @@
 
 
 
-
-
-export var blocks = [
+var apps = [
 {
 	id:'evolve',
 	back:'/assets/img/evolvehuman_black.jpg',
@@ -28,13 +26,18 @@ export var blocks = [
 	
 	`
 
-},
+}
+]
+
+
+
+var blocks = [
 {
 	id:'code',
 	back:'/assets/img/matrix2.jpg',
 	description:`
 
-	I offer code to the masses<br><br>
+	we offer code to the masses<br><br>
 
 	feast and be merry :-)
 
@@ -43,14 +46,25 @@ export var blocks = [
 {
 	id:'hire',
 	back:'/assets/img/garfield.jpg',
-	description:"i'm also a programmer for hire"
+	description:"we're also programmers for hire"
+},
+{
+	id:'home',
+	back:'/assets/img/home.jpg',
+	description:`
+
+	and we come to your home and make it smart <br><br>
+
+	cuz we're smart too
+
+	`
 },
 {
 	id:'poetry',
 	back:'/assets/img/code-poetry.jpg',
 	description:`
 
-	what I do is more than just <br><br>
+	what we do is more than just <br><br>
 
 	source code production and client work
 
@@ -61,9 +75,9 @@ export var blocks = [
 	back:'/assets/img/intense_coding.jpg',
 	description:`
 
-	I enjoy what I do<br><br>
+	we enjoy what we do<br><br>
 
-	and I do it a lot
+	and we do it a lot
 
 	`
 },
@@ -87,7 +101,7 @@ export var blocks = [
 	back:'/assets/img/crying.jpg',
 	description:`
 
-	which sometimes makes you<br><br> 
+	which sometimes makes us<br><br> 
 
 	want to do this
 
@@ -96,7 +110,7 @@ export var blocks = [
 {
 	id:'html',
 	back:'/assets/img/javascript2.jpg',
-	description:"so instead I do this"
+	description:"so instead we do this"
 },
 {
 	id:'end',
@@ -105,7 +119,7 @@ export var blocks = [
 }
 ];
 
-export var contact = {
+var contact = {
 	bio:`
 
 
@@ -226,3 +240,10 @@ var addIndexesToArray = function (array) {
 }
 
 addIndexesToArray(blocks);
+
+
+export var all = {
+	apps:apps,
+	blocks:blocks,
+	contact:contact
+}

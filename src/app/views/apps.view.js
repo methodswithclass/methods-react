@@ -7,12 +7,11 @@
 import React from 'react';
 
 import Navbtn from "../components/navbtn/Navbtn";
-import Iconbtn from "../components/navbtn/Iconbtn";
 import Block from "../components/block/Block";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
-import '../states/home/Home.css';
+import '../states/apps/Apps.css';
 
 
 import '../../assets/css/classes.css';
@@ -25,12 +24,33 @@ import * as api from "../services/api.ws.service";
 import * as data from "../services/data.service";
 
 
+var getBlocks = function () {
+
+
+	var blocks = data.all.apps.map(function (info) {
+
+		return (
+	        <div key={info.id} className="relative width">
+	    		<Block key={info.id} scroll="body" info={info}></Block>
+			</div>
+		)
+	});
+
+
+	return (
+
+		<div className="relative width">
+			{blocks}
+		</div>
+	)
+}
+
 
 var getElem = function () {
 
 
 	console.log("state name", state.getName());
-	console.log("check mobile home", u.checkMobile());
+	console.log("check mobile", u.checkMobile());
 
 	var title;
 
@@ -61,27 +81,9 @@ var getElem = function () {
 									{title}
 								</div>
 
-								<div className="relative width height-50 white">
-									<div className="relative width-200 height margin-v-20">
-										<Navbtn name="about" state="about"></Navbtn>
-									</div>
-
-									<div className="relative width-200 height margin-v-20">
-										<Navbtn name="what" state="what"></Navbtn>
-									</div>
-
-									<div className="relative width-200 height margin-v-20">
-										<Navbtn name="contact" state="contact"></Navbtn>
-									</div>
-
-									<div className="relative width-200 height margin-v-20">
-										<Navbtn name="chris" state="chris"></Navbtn>
-									</div>
-								</div>
-
 								
-								<div className="absolute width white bottom0 text-right"> 
-									we make your ideas and your home come to life with class 
+								<div className="absolute width-200 height-50">
+									<Navbtn name="back" state="home"></Navbtn>
 								</div>
 								
 							</div>
@@ -93,25 +95,7 @@ var getElem = function () {
 
 
 			    <div className="relative width"> 
-			        	
-			        <div className="relative width height-1000 white-back">
-
-			        	<div className="relative width60 height-400 center">
-			        		<div className="absolute width50 height">
-
-			        			<Iconbtn name="Contact us" state="contact" icon="fa-user-check"></Iconbtn>
-			        		</div>
-
-
-				        	<div className="absolute width50 height right0">
-
-				        		<Iconbtn name="About us" state="about" icon="fa-laptop"></Iconbtn>
-				        	</div>
-
-				        </div>
-
-			        </div>
-
+			        {getBlocks()}
 			    </div>
 
 
@@ -128,7 +112,7 @@ var getElem = function () {
 }
 
 
-export var Home = function () {
+export var Apps = function () {
 
 	return getElem();
 }

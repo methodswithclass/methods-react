@@ -1,6 +1,6 @@
 
 import jQuery from "jquery";
-
+import React from "react";
 
 var $ = jQuery;
 
@@ -25,6 +25,19 @@ export var getUrl = function () {
     // console.log("get url", absUrl, "\n\n\n\n\n\n\n\n\n\n");
 
     return absUrl;
+}
+
+export var makeTitle = function ($title, string) {
+
+    return (
+        
+        <div>
+            {$title.split(string).map((i,key) => {
+                return <div className="relative width margin-v-20" key={key}>{i}</div>;
+            })}
+        </div>
+
+    );
 }
 
 var getAbsUrl = function () {
