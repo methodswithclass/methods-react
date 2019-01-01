@@ -51288,9 +51288,9 @@ var getResume = function () {
       className: "relative width"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
       contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
-      textfont: "font-40",
-      title1font: "font-60",
-      title2font: "font-50"
+      textfont: "font-30",
+      title1font: "font-50",
+      title2font: "font-40"
     }))));
   } else {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

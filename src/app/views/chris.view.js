@@ -102,7 +102,7 @@ var getResume = function () {
 				<div className="relative width padding-v-50">
 
 					<div className="relative width">
-						<Resume contact={data.all.contact} textfont="font-40" title1font="font-60" title2font="font-50"/>
+						<Resume contact={data.all.contact} textfont="font-30" title1font="font-50" title2font="font-40"/>
 					</div>
 
 				</div>
