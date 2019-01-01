@@ -48684,7 +48684,7 @@ class Iconbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISref"], {
       to: this.props.state
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width-300 height-300 center raised rounded20 black-back pointer"
+      className: "absolute width80 height80 center raised rounded20 black-back pointer"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width height80 vcenter white"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51066,12 +51066,14 @@ var getElem = function () {
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-1000 blue-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute center"
+    className: "absolute width60 height-400 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width50 height center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: "What we do",
     state: "what",
     icon: "fa-laptop"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 };
@@ -51365,12 +51367,14 @@ var getElem = function () {
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-1000 blue4-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute center"
+    className: "absolute width60 height-400 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width50 height center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: "Meet Chris",
     state: "chris",
     icon: "fa-user-check"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 };

@@ -72,8 +72,10 @@ var getElem = function () {
 
 				<div className="relative width height-1000 blue4-back">
 
-				    <div className="absolute center">
-				    	<Iconbtn name="Meet Chris" state="chris" icon="fa-user-check"></Iconbtn>
+				    <div className="absolute width60 height-400 center">
+				    	<div className="absolute width50 height center">
+				    		<Iconbtn name="Meet Chris" state="chris" icon="fa-user-check"></Iconbtn>
+				    	</div>
 				    </div>
 
 			    </div>
