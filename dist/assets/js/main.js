@@ -48439,7 +48439,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   componentWillMount() {
-    _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["forceMobile"]();
+    // u.forceMobile();
     console.log("check mobile app", _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]());
   }
 
