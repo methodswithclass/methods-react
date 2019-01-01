@@ -19,7 +19,7 @@ class Iconbtn extends Component {
 			<UISrefActive class="active">
 				<UISref to={this.props.state}>
 
-					<div className="absolute width-300 height-300 center raised rounded20 black-back pointer">
+					<div className="absolute width80 height80 center raised rounded20 black-back pointer">
 						<div className="absolute width height80 vcenter white">
 
 							<div className="relative width height50">
