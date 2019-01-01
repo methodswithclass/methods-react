@@ -48474,6 +48474,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _parallax_Parallax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/utility.service */ "./app/services/utility.service.js");
+
 
 
 
@@ -48489,11 +48491,19 @@ var getId = function (name, $info) {
 
 var chooseElem = function ($$info) {
   if ($$info.id == "gravity") {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute left-100 width-500 height-100 top60 white-back rounded20 border"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute center font-25"
-    }, "visit on your mobile device to play"));
+    if (_services_utility_service__WEBPACK_IMPORTED_MODULE_4__["checkMobile"]()) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "absolute center font-25"
+      }, "click here to play gravity"));
+    } else {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "absolute left-100 width-500 height-100 top60 white-back rounded20 border"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "absolute center font-25"
+      }, "visit on your mobile device to play"));
+    }
   } else if ($$info.id == "evolve") {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer"
@@ -48506,20 +48516,19 @@ var chooseElem = function ($$info) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute center font-25"
     }, "click here for code"));
-  } // else if ($$info.id == "end") {
-  //     return (
-  //             <div className='absolute top10 left10 width-200 height-50' id={getId("contact", $$info)}>
-  //               <div className='absolute width height white-back rounded10 pointer'>
-  //                 <div><div className='absolute font-40 center'>contact</div></div>
-  //               </div>
-  //             </div>
-  //     )
-  // }
-
+  }
 };
 
-var clicked = function () {
-  console.log("clicked");
+var clicked = function (info) {
+  return function () {
+    console.log("clicked", info.id);
+
+    if (info.id == "evolve") {
+      window.open("https://evolve.methodswithclass.com", "_blank");
+    } else if (_services_utility_service__WEBPACK_IMPORTED_MODULE_4__["checkMobile"]() && info.id == "gravity") {
+      window.open("https://gravity.methodswithclass.com", "_blank");
+    }
+  };
 };
 
 var getHtml = function (html) {
@@ -48533,7 +48542,8 @@ var getHtml = function (html) {
 class Block extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
     info = this.props.info;
-    console.log("info", info);
+    console.log("info", info); // name={info.id} scroll="body" src={info.back} img-id={'parallax-img-' + info.index} adjustinner="true"
+
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -48545,12 +48555,7 @@ class Block extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, getHtml(info.description))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width height-800 cutoff noedge"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      name: info.id,
-      scroll: "body",
-      src: info.back,
-      "img-id": 'parallax-img-' + info.index,
-      adjustinner: "true",
-      onClick: clicked
+      onClick: clicked(info)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width120 height hcenter"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {

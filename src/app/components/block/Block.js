@@ -6,6 +6,9 @@ import '../../../assets/css/classes.css';
 
 import Parallax from "../parallax/Parallax";
 
+
+import * as u from "../../services/utility.service";
+
 var info;
 
 var hold = function () {
@@ -26,15 +29,30 @@ var chooseElem = function ($$info) {
 
   if ($$info.id == "gravity") {
 
-      return (
-              
-              <div className="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
-                <div className="absolute center font-25">
-                  visit on your mobile device to play
-                </div>
-              </div>
+      if (u.checkMobile()) {
 
-      )
+          return (
+                  
+                  <div className="absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer">
+                    <div className="absolute center font-25">
+                      click here to play gravity
+                    </div>
+                  </div>
+
+          )
+      }
+      else {
+          return (
+                  
+                  <div className="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
+                    <div className="absolute center font-25">
+                      visit on your mobile device to play
+                    </div>
+                  </div>
+
+          )
+
+      }
   }
   else if ($$info.id == "evolve") {
 
@@ -61,26 +79,28 @@ var chooseElem = function ($$info) {
       )
 
   }
-  // else if ($$info.id == "end") {
-
-  //     return (
-
-  //             <div className='absolute top10 left10 width-200 height-50' id={getId("contact", $$info)}>
-  //               <div className='absolute width height white-back rounded10 pointer'>
-  //                 <div><div className='absolute font-40 center'>contact</div></div>
-  //               </div>
-  //             </div>
-
-  //     )
-  // }
 
 
 }
 
 
-var clicked = function () {
+var clicked = function (info) {
 
-    console.log("clicked");
+
+    return function () {
+
+      console.log("clicked", info.id);
+
+      if (info.id == "evolve") {
+
+          window.open("https://evolve.methodswithclass.com", "_blank");
+      }
+      else if (u.checkMobile() && info.id == "gravity") {
+
+          window.open("https://gravity.methodswithclass.com", "_blank");
+      }
+    }
+    
 }
 
 
@@ -106,6 +126,8 @@ class Block extends Component {
     
     console.log("info", info);
 
+    // name={info.id} scroll="body" src={info.back} img-id={'parallax-img-' + info.index} adjustinner="true"
+
     return ( 
 
 
@@ -122,7 +144,7 @@ class Block extends Component {
           </div>
 
           <div className="relative width height-800 cutoff noedge">
-              <div name={info.id} scroll="body" src={info.back} img-id={'parallax-img-' + info.index} adjustinner="true" onClick={clicked}>
+              <div onClick={clicked(info)}>
 
                 <div className="absolute width120 height hcenter">
                   <img className="absolute width height-auto vcenter" src={info.back} />
