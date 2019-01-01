@@ -56,7 +56,7 @@ var getElem = function () {
 
 					<div className="absolute width80 height60 center">
 						
-						<div className="absolute width50 white right0 text-right font-70">
+						<div className="absolute width white right0 text-right font-70">
 							{title}
 						</div>
 
