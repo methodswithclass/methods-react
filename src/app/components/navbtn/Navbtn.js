@@ -12,9 +12,9 @@ class Navbtn extends Component {
 
 
             <UISrefActive class="active">
-                <UISref to={this.props.state} params={((this.props.state === "home") ? {id:this.props.state} : {demo:this.props.name.toLowerCase()})}>
+                <UISref to={this.props.state}>
                        
-                    <div className="absolute width height black-back white rounded20 raised pointer">
+                    <div className={"absolute width height rounded10 pointer " + this.props.class}>
                         <div className="absolute center">{this.props.name}</div>
                     </div> 
 

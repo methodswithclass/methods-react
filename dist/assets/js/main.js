@@ -48527,6 +48527,8 @@ var clicked = function (info) {
       window.open("https://evolve.methodswithclass.com", "_blank");
     } else if (_services_utility_service__WEBPACK_IMPORTED_MODULE_4__["checkMobile"]() && info.id == "gravity") {
       window.open("https://gravity.methodswithclass.com", "_blank");
+    } else if (info.id == "code") {
+      window.open("https://code.methodswithclass.com", "_blank");
     }
   };
 };
@@ -48647,10 +48649,10 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }
 
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width height-200 black-back border-top-white",
+      className: "relative width height-400 black-back border-top-white",
       id: "footer"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width80 height-30 hcenter top60 text-right white " + font
+      className: "absolute width80 height-30 hcenter bottom-100 text-right white " + font
     }, "\xA92018 methods with class"));
   }
 
@@ -48734,14 +48736,9 @@ class Navbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISrefActive"], {
       class: "active"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISref"], {
-      to: this.props.state,
-      params: this.props.state === "home" ? {
-        id: this.props.state
-      } : {
-        demo: this.props.name.toLowerCase()
-      }
+      to: this.props.state
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width height black-back white rounded20 raised pointer"
+      className: "absolute width height rounded10 pointer " + this.props.class
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute center"
     }, this.props.name))));
@@ -49201,7 +49198,7 @@ class Resume extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: getclass("text", this.props)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width80 hcenter margin-v-100 border white-back raised"
+      className: "relative width"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width80 hcenter"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -50345,13 +50342,14 @@ function getTitle() {
 /*!*****************************************!*\
   !*** ./app/services/utility.service.js ***!
   \*****************************************/
-/*! exports provided: getUrl, makeTitle, setEnv, env, getEnv, jquery, forceMobile, whatDevice, captureError, getViewTypes, checkMobile, toggle, dim, makeAspect, getInterface, isInterface, setInterface, changeInterface, interfaceChanged, resetChanged, stateName */
+/*! exports provided: getUrl, makeTitle, getTitle, setEnv, env, getEnv, jquery, forceMobile, whatDevice, captureError, getViewTypes, checkMobile, toggle, dim, makeAspect, getInterface, isInterface, setInterface, changeInterface, interfaceChanged, resetChanged, stateName */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrl", function() { return getUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeTitle", function() { return makeTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle", function() { return getTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setEnv", function() { return setEnv; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "env", function() { return env; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEnv", function() { return getEnv; });
@@ -50400,6 +50398,9 @@ var makeTitle = function ($title, string) {
       key: key
     }, i);
   }));
+};
+var getTitle = function () {
+  return makeTitle("methods\nwith class, llc", "\n");
 };
 
 var getAbsUrl = function () {
@@ -51050,13 +51051,8 @@ __webpack_require__.r(__webpack_exports__);
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {} else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51075,9 +51071,10 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-300 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    class: "white-back black font-30 border raised-white",
     name: "back",
     state: "home"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51156,13 +51153,9 @@ var getBlocks = function () {
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51181,9 +51174,10 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-300 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    class: "white-back black font-30 border raised-white",
     name: "back",
     state: "what"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51285,7 +51279,7 @@ var getResume = function () {
     }, getCard()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width padding-v-50"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width"
+      className: "relative width90 hcenter margin-v-100 border white-back raised"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
       contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
       textfont: "font-30",
@@ -51298,7 +51292,7 @@ var getResume = function () {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative inline width50"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width"
+      className: "relative width80 hcenter margin-v-100 border white-back raised"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
       contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
       textfont: "font-15",
@@ -51313,13 +51307,9 @@ var getResume = function () {
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_7__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51328,10 +51318,11 @@ var getElem = function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width80 height60 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width50 white right0 text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
+    className: "absolute width white right0 text-right font-70"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-300 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    class: "white-back black font-30 border raised-white",
     name: "back",
     state: "contact"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51388,13 +51379,9 @@ __webpack_require__.r(__webpack_exports__);
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innercontact" adjustinner="false">
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innercontact" adjustinner="false">
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51403,10 +51390,11 @@ var getElem = function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width80 height60 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width50 white right0 text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
+    className: "absolute width white right0 text-right font-70"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-300 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    class: "white-back black font-30 border raised-white",
     name: "back",
     state: "home"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51485,14 +51473,10 @@ var getBlocks = function () {
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
     // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51507,9 +51491,10 @@ var getElem = function () {
     className: "absolute width80 height40 border center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-300 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    class: "white-back black font-30 border raised-white",
     name: "back",
     state: "what"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51566,10 +51551,8 @@ __webpack_require__.r(__webpack_exports__);
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
   console.log("check mobile home", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
     // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
     // <div className="relative width height-50 white">
     // 	<div className="relative width-200 height margin-v-20">
@@ -51585,9 +51568,7 @@ var getElem = function () {
     // 		<Navbtn name="chris" state="chris"></Navbtn>
     // 	</div>
     // </div>
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51602,7 +51583,7 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width white bottom0 text-right"
   }, "we make your ideas and your home come to life with class"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
@@ -51674,13 +51655,9 @@ __webpack_require__.r(__webpack_exports__);
 var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
-  var title;
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["makeTitle"]("methods with\nclass, llc", "\n");
-  }
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
@@ -51699,9 +51676,10 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-300 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    class: "white-back black font-30 border raised-white",
     name: "back",
     state: "about"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

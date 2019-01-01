@@ -26,9 +26,9 @@ class Footer extends Component {
 
 
 
-      <div className="relative width height-200 black-back border-top-white" id="footer">
+      <div className="relative width height-400 black-back border-top-white" id="footer">
   
-        <div className={"absolute width80 height-30 hcenter top60 text-right white " + font}>&copy;2018 methods with class</div>
+        <div className={"absolute width80 height-30 hcenter bottom-100 text-right white " + font}>&copy;2018 methods with class</div>
 
       </div>
 

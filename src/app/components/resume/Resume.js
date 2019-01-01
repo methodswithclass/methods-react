@@ -102,7 +102,7 @@ class Resume extends Component {
 
       <div className={getclass("text", this.props)}>
 
-        <div className="relative width80 hcenter margin-v-100 border white-back raised">
+        <div className="relative width">
 
           <div className="relative width80 hcenter">
 

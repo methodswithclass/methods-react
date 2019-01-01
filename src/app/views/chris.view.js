@@ -101,7 +101,7 @@ var getResume = function () {
 
 				<div className="relative width padding-v-50">
 
-					<div className="relative width">
+					<div className="relative width90 hcenter margin-v-100 border white-back raised">
 						<Resume contact={data.all.contact} textfont="font-30" title1font="font-50" title2font="font-40"/>
 					</div>
 
@@ -121,7 +121,7 @@ var getResume = function () {
 			<div className="relative width">
 		        <div className="relative inline width50">
 
-					<div className="relative width">
+					<div className="relative width80 hcenter margin-v-100 border white-back raised">
 						<Resume contact={data.all.contact} textfont="font-15" title1font="font-40" title2font="font-30"/>
 					</div>
 
@@ -146,17 +146,13 @@ var getElem = function () {
 	console.log("state name", state.getName());
 	console.log("check mobile", u.checkMobile());
 
-	var title;
-
 	if (u.checkMobile()) {
-
-		title = u.makeTitle("methods with\nclass, llc", "\n");
 		
 		// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
 	}	
 	else {
 
-		title = u.makeTitle("methods with\nclass, llc", "\n");
+
 	}
 
 
@@ -172,11 +168,11 @@ var getElem = function () {
 					<div className="absolute width80 height60 center">
 						
 						<div className="absolute width white right0 text-right font-70">
-							{title}
+							{u.getTitle()}
 						</div>
 
-						<div className="absolute width-200 height-50">
-							<Navbtn name="back" state="contact"></Navbtn>
+						<div className="absolute width-300 height-50">
+							<Navbtn class="white-back black font-30 border raised-white" name="back" state="contact"></Navbtn>
 						</div>
 
 					</div>

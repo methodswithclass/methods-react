@@ -32,11 +32,11 @@ var getElem = function () {
 	console.log("state name", state.getName());
 	console.log("check mobile home", u.checkMobile());
 
-	var title;
+	
 
 	if (u.checkMobile()) {
 
-		title = u.makeTitle("methods with\nclass, llc", "\n");
+
 
 		// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
 
@@ -63,7 +63,7 @@ var getElem = function () {
 	}	
 	else {
 
-		title = u.makeTitle("methods with\nclass, llc", "\n");
+		
 	}
 
 
@@ -79,7 +79,7 @@ var getElem = function () {
 							<div className="absolute width80 height40 center">
 
 								<div className="absolute top0 right0 width white text-right font-70">
-									{title}
+									{u.getTitle()}
 								</div>
 
 								

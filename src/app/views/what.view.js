@@ -33,17 +33,17 @@ var getElem = function () {
 	console.log("state name", state.getName());
 	console.log("check mobile", u.checkMobile());
 
-	var title;
+
 
 	if (u.checkMobile()) {
 
-		title = u.makeTitle("methods with\nclass, llc", "\n");
+		
 
 		// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
 	}	
 	else {
 
-		title = u.makeTitle("methods with\nclass, llc", "\n");
+		
 	}
 
 
@@ -59,12 +59,12 @@ var getElem = function () {
 							<div className="absolute width80 height40 center">
 
 								<div className="absolute top0 right0 width white text-right font-70">
-									{title}
+									{u.getTitle()}
 								</div>
 
 								
-								<div className="absolute width-200 height-50">
-									<Navbtn name="back" state="about"></Navbtn>
+								<div className="absolute width-300 height-50">
+									<Navbtn class="white-back black font-30 border raised-white" name="back" state="about"></Navbtn>
 								</div>
 								
 							</div>

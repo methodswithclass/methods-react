@@ -40,6 +40,12 @@ export var makeTitle = function ($title, string) {
     );
 }
 
+
+export var getTitle = function () {
+
+    return makeTitle("methods\nwith class, llc", "\n");
+}
+
 var getAbsUrl = function () {
 
     $.get("/url", 

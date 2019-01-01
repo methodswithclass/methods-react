@@ -99,6 +99,10 @@ var clicked = function (info) {
 
           window.open("https://gravity.methodswithclass.com", "_blank");
       }
+      else if (info.id == "code") {
+
+          window.open("https://code.methodswithclass.com", "_blank");
+      }
     }
     
 }
