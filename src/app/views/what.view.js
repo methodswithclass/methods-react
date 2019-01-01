@@ -64,7 +64,7 @@ var getElem = function () {
 
 								
 								<div className="absolute width-200 height-50">
-									<Navbtn name="back" state="home"></Navbtn>
+									<Navbtn name="back" state="about"></Navbtn>
 								</div>
 								
 							</div>
@@ -77,18 +77,18 @@ var getElem = function () {
 
 			    <div className="relative width"> 
 			        	
-			        <div className="relative width height-1000 white-back">
+			        <div className="relative width height-1000 green-back">
 
 			        	<div className="relative width60 height-400 center">
 			        		<div className="absolute width50 height">
 
-			        			<Iconbtn name="Apps" state="what.apps" icon="fa-tablet"></Iconbtn>
+			        			<Iconbtn name="Apps" state="apps" icon="fa-tablet"></Iconbtn>
 			        		</div>
 
 
 				        	<div className="absolute width50 height right0">
 
-				        		<Iconbtn name="Hire" state="what.hire" icon="fa-tools"></Iconbtn>
+				        		<Iconbtn name="Hire" state="hire" icon="fa-tools"></Iconbtn>
 				        	</div>
 
 				        </div>

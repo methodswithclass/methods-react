@@ -83,7 +83,7 @@ var getElem = function () {
 
 								
 								<div className="absolute width-200 height-50">
-									<Navbtn name="back" state="home"></Navbtn>
+									<Navbtn name="back" state="what"></Navbtn>
 								</div>
 								
 							</div>

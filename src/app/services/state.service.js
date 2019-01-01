@@ -23,12 +23,8 @@ function setStateName ($name) {
 export var states = [
 {
   name: 'home',
-  url: '/:id',
+  url: '/home',
   component: Home,
-  params:{
-  	id:"home",
-  	squash:"string"
-  },
   resolve:[{
     token: 'home',
     deps: ['$transition$'],
@@ -40,32 +36,74 @@ export var states = [
 {
   name: 'about',
   url: '/about',
-  component: About
+  component: About,
+  resolve:[{
+    token: 'about',
+    deps: ['$transition$'],
+    resolveFn: (trans) => {
+      setStateName("about");
+    }
+  }]
 },
 {
   name: 'what',
   url: '/about/whatwedo',
-  component: What
+  component: What,
+  resolve:[{
+    token: 'what',
+    deps: ['$transition$'],
+    resolveFn: (trans) => {
+      setStateName("what");
+    }
+  }]
 },
 {
-  name: 'what.apps',
-  url: '/apps',
-  component: Apps
+  name: 'apps',
+  url: '/about/whatwedo/apps',
+  component: Apps,
+  resolve:[{
+    token: 'apps',
+    deps: ['$transition$'],
+    resolveFn: (trans) => {
+      setStateName("apps");
+    }
+  }]
 },
 {
-  name: 'what.hire',
-  url: '/hire',
-  component: Hire
+  name: 'hire',
+  url: '/about/whatwedo/hire',
+  component: Hire,
+  resolve:[{
+    token: 'hire',
+    deps: ['$transition$'],
+    resolveFn: (trans) => {
+      setStateName("hire");
+    }
+  }]
 },
 {
   name: 'contact',
-  url: '/about/contact',
-  component: Contact
+  url: '/contact',
+  component: Contact,
+  resolve:[{
+    token: 'contact',
+    deps: ['$transition$'],
+    resolveFn: (trans) => {
+      setStateName("contact");
+    }
+  }]
 },
 {
   name: 'chris',
-  url: '/about/contact/chris',
-  component: Chris
+  url: '/contact/chris',
+  component: Chris,
+  resolve:[{
+    token: 'chris',
+    deps: ['$transition$'],
+    resolveFn: (trans) => {
+      setStateName("chris");
+    }
+  }]
 }
 ]
 

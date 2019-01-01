@@ -114,7 +114,7 @@ var blocks = [
 },
 {
 	id:'end',
-	back:'/assets/img/trust.jpg',
+	back:'/assets/img/trust2.jpg',
 	description:"the end"
 }
 ];

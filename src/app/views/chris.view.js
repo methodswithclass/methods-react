@@ -28,12 +28,16 @@ import * as data from "../services/data.service";
 var email = function () {
 
 	console.log("clicked email");
+
+	window.location.href = 'mailto:chris@methodswithclass.com';
 }
 
 
 var resume = function () {
 
 	console.log("clicked resume");
+
+	window.location.href = '/public/img/cpolito_201809.docx';
 }
 
 var getElem = function () {
@@ -74,14 +78,14 @@ var getElem = function () {
 						</div>
 
 						<div className="absolute width-200 height-50">
-							<Navbtn name="back" state="home"></Navbtn>
+							<Navbtn name="back" state="contact"></Navbtn>
 						</div>
 
 					</div>
 
 				</div>
 
-				<div className="relative width">
+				<div className="relative width teal-back">
 
 					<div className="relative width80 hcenter">
 
@@ -117,7 +121,7 @@ var getElem = function () {
 
 								</div>
 
-								<div className="relative width80 height-50 hcenter margin-v-50 black-back white pointer rounded10" onClick={resume}>
+								<div className="relative width80 height-50 raised hcenter margin-v-50 black-back white pointer rounded10" onClick={resume}>
 									<div className="absolute center">
 										resume.doc
 									</div>

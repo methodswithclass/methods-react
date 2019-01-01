@@ -70,7 +70,7 @@ var getElem = function () {
 
 				
 
-				<div className="relative width height-1000">
+				<div className="relative width height-1000 blue4-back">
 
 				    <div className="absolute center">
 				    	<Iconbtn name="Meet Chris" state="chris" icon="fa-user-check"></Iconbtn>

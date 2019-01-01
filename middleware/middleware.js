@@ -19,7 +19,8 @@ var getEnv = function () {
 
 var refreshPages = [
 	"home",
-	"about"
+	"about",
+	"contact"
 ]
 
 

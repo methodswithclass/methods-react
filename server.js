@@ -36,7 +36,7 @@ var PORTS = {
 
 
 
-// app.use(middleware.refresh());
+app.use(middleware.refresh());
 if  (process.env.NODE_ENV == "production") app.use(middleware.forceSSL());
 else {console.log("environment development");}
 

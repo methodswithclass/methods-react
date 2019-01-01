@@ -48682,14 +48682,9 @@ class Iconbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISrefActive"], {
       class: "active"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISref"], {
-      to: this.props.state,
-      params: this.props.state === "home" ? {
-        id: this.props.state
-      } : {
-        demo: this.props.name.toLowerCase()
-      }
+      to: this.props.state
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width-300 height-300 rounded20 black-back pointer"
+      className: "absolute width-300 height-300 center raised rounded20 black-back pointer"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width height80 vcenter white"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49189,7 +49184,7 @@ class Resume extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width80 hcenter margin-v-100 border"
+      className: "relative width80 hcenter margin-v-100 border white-back raised"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width80 hcenter"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49830,7 +49825,7 @@ var blocks = [{
   description: "so instead we do this"
 }, {
   id: 'end',
-  back: '/assets/img/trust.jpg',
+  back: '/assets/img/trust2.jpg',
   description: "the end"
 }];
 var contact = {
@@ -50231,12 +50226,8 @@ function setStateName($name) {
 
 var states = [{
   name: 'home',
-  url: '/:id',
+  url: '/home',
   component: _states_home_Home__WEBPACK_IMPORTED_MODULE_1__["default"],
-  params: {
-    id: "home",
-    squash: "string"
-  },
   resolve: [{
     token: 'home',
     deps: ['$transition$'],
@@ -50247,27 +50238,69 @@ var states = [{
 }, {
   name: 'about',
   url: '/about',
-  component: _states_about_About__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _states_about_About__WEBPACK_IMPORTED_MODULE_2__["default"],
+  resolve: [{
+    token: 'about',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("about");
+    }
+  }]
 }, {
   name: 'what',
   url: '/about/whatwedo',
-  component: _states_what_What__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _states_what_What__WEBPACK_IMPORTED_MODULE_4__["default"],
+  resolve: [{
+    token: 'what',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("what");
+    }
+  }]
 }, {
-  name: 'what.apps',
-  url: '/apps',
-  component: _states_apps_Apps__WEBPACK_IMPORTED_MODULE_5__["default"]
+  name: 'apps',
+  url: '/about/whatwedo/apps',
+  component: _states_apps_Apps__WEBPACK_IMPORTED_MODULE_5__["default"],
+  resolve: [{
+    token: 'apps',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("apps");
+    }
+  }]
 }, {
-  name: 'what.hire',
-  url: '/hire',
-  component: _states_hire_Hire__WEBPACK_IMPORTED_MODULE_6__["default"]
+  name: 'hire',
+  url: '/about/whatwedo/hire',
+  component: _states_hire_Hire__WEBPACK_IMPORTED_MODULE_6__["default"],
+  resolve: [{
+    token: 'hire',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("hire");
+    }
+  }]
 }, {
   name: 'contact',
-  url: '/about/contact',
-  component: _states_contact_Contact__WEBPACK_IMPORTED_MODULE_3__["default"]
+  url: '/contact',
+  component: _states_contact_Contact__WEBPACK_IMPORTED_MODULE_3__["default"],
+  resolve: [{
+    token: 'contact',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("contact");
+    }
+  }]
 }, {
   name: 'chris',
-  url: '/about/contact/chris',
-  component: _states_people_chris_Chris__WEBPACK_IMPORTED_MODULE_7__["default"]
+  url: '/contact/chris',
+  component: _states_people_chris_Chris__WEBPACK_IMPORTED_MODULE_7__["default"],
+  resolve: [{
+    token: 'chris',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("chris");
+    }
+  }]
 }];
 const configRouter = $router => {
   console.log("$router", $router);
@@ -51133,7 +51166,7 @@ var getElem = function () {
     className: "absolute width-200 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "back",
-    state: "home"
+    state: "what"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51183,10 +51216,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var email = function () {
   console.log("clicked email");
+  window.location.href = 'mailto:chris@methodswithclass.com';
 };
 
 var resume = function () {
   console.log("clicked resume");
+  window.location.href = '/public/img/cpolito_201809.docx';
 };
 
 var getElem = function () {
@@ -51215,9 +51250,9 @@ var getElem = function () {
     className: "absolute width-200 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "back",
-    state: "home"
+    state: "contact"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
+    className: "relative width teal-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width80 hcenter"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51252,7 +51287,7 @@ var getElem = function () {
     className: "width height-auto",
     src: "/public/img/linkedin.png"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width80 height-50 hcenter margin-v-50 black-back white pointer rounded10",
+    className: "relative width80 height-50 raised hcenter margin-v-50 black-back white pointer rounded10",
     onClick: resume
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute center"
@@ -51328,7 +51363,7 @@ var getElem = function () {
     name: "back",
     state: "home"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-1000"
+    className: "relative width height-1000 blue4-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -51405,6 +51440,7 @@ var getElem = function () {
 
   if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {
     title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
   } else {
     title = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("methods with\nclass, llc", "\n");
   }
@@ -51414,23 +51450,19 @@ var getElem = function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-600 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    name: "top",
-    scroll: "body",
-    top: "true",
-    inner: "innerhome",
-    adjustinner: "false"
+    className: "absolute width height"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height",
     id: "innerhome"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width80 height40 center"
+    className: "absolute width80 height40 border center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
   }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width-200 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "back",
-    state: "home"
+    state: "what"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51489,6 +51521,21 @@ var getElem = function () {
 
   if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {
     title = _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
+    // <div className="relative width height-50 white">
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="about" state="about"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="what" state="what"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="contact" state="contact"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="chris" state="chris"></Navbtn>
+    // 	</div>
+    // </div>
   } else {
     title = _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["makeTitle"]("methods with\nclass, llc", "\n");
   }
@@ -51498,11 +51545,7 @@ var getElem = function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-600 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    name: "top",
-    scroll: "body",
-    top: "true",
-    inner: "innerhome",
-    adjustinner: "false"
+    className: "absolute width height"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height",
     id: "innerhome"
@@ -51511,33 +51554,11 @@ var getElem = function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
   }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-50 white"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width-200 height margin-v-20"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "about",
-    state: "about"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width-200 height margin-v-20"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "what",
-    state: "what"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width-200 height margin-v-20"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "contact",
-    state: "contact"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width-200 height margin-v-20"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "chris",
-    state: "chris"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width white bottom0 text-right"
   }, "we make your ideas and your home come to life with class"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-1000 white-back"
+    className: "relative width height-1000 green7-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width60 height-400 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51633,24 +51654,24 @@ var getElem = function () {
     className: "absolute width-200 height-50"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "back",
-    state: "home"
+    state: "about"
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-1000 white-back"
+    className: "relative width height-1000 green-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width60 height-400 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width50 height"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: "Apps",
-    state: "what.apps",
+    state: "apps",
     icon: "fa-tablet"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width50 height right0"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: "Hire",
-    state: "what.hire",
+    state: "hire",
     icon: "fa-tools"
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"

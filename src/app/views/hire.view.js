@@ -60,6 +60,8 @@ var getElem = function () {
 		title = u.makeTitle("methods with\nclass, llc", "\n");
 
 		// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+
+		// name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
 	}	
 	else {
 
@@ -74,9 +76,9 @@ var getElem = function () {
 					
 
 	    		<div className="relative width height-600 black-back">
-					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+					<div className="absolute width height">
 						<div className="absolute width height" id="innerhome">
-							<div className="absolute width80 height40 center">
+							<div className="absolute width80 height40 border center">
 
 								<div className="absolute top0 right0 width white text-right font-70">
 									{title}
@@ -84,7 +86,7 @@ var getElem = function () {
 
 								
 								<div className="absolute width-200 height-50">
-									<Navbtn name="back" state="home"></Navbtn>
+									<Navbtn name="back" state="what"></Navbtn>
 								</div>
 								
 							</div>
