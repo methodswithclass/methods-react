@@ -37,7 +37,7 @@ var resume = function () {
 
 	console.log("clicked resume");
 
-	window.location.href = '/public/img/cpolito_201809.docx';
+	window.location.href = '/public/img/cpolito_201810.docx';
 }
 
 
