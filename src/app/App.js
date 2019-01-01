@@ -16,7 +16,7 @@ class App extends Component {
 
 
 
-    // u.forceMobile();
+    u.forceMobile();
     console.log("check mobile app", u.checkMobile());
   }
 

@@ -48439,7 +48439,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   componentWillMount() {
-    // u.forceMobile();
+    _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["forceMobile"]();
     console.log("check mobile app", _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]());
   }
 
@@ -48636,7 +48636,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     var font;
 
     if (_services_utility_service__WEBPACK_IMPORTED_MODULE_1__["checkMobile"]()) {
-      font = "font-30";
+      font = "font-40";
     } else {
       font = "font-20";
     }
@@ -48645,7 +48645,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "relative width height-200 black-back border-top-white",
       id: "footer"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width80 height-30 hcenter top60 text-right white {font}"
+      className: "absolute width80 height-30 hcenter top60 text-right white " + font
     }, "\xA92018 methods with class"));
   }
 
@@ -49152,13 +49152,25 @@ var getList = function ($list) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, list);
 };
 
-var getProjects = function () {
+var getclass = function (type, props) {
+  if (type == "text") {
+    return "relative width " + props.textfont;
+  } else if (type == "title1a") {
+    return "relative width font-bold " + props.title1font;
+  } else if (type == "title2a") {
+    return "relative width font-bold " + props.title2font;
+  } else if (type == "title2b") {
+    return "relative width padding-v-20 " + props.title2font;
+  }
+};
+
+var getProjects = function (props) {
   var projects = contact.projects.items.map(function (project, key) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
       className: "relative width margin-v-20"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width padding-v-20 font-25 font-bold"
+      className: getclass("title2b", props)
     }, project.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width padding-v-20 font-italic"
     }, project.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49182,7 +49194,7 @@ class Resume extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     contact = this.props.contact;
     console.log("contact", contact);
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width"
+      className: getclass("text", this.props)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width80 hcenter margin-v-100 border white-back raised"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49196,16 +49208,16 @@ class Resume extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, _services_utility_service__WEBPACK_IMPORTED_MODULE_2__["makeTitle"](contact.bio, "<br>")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width margin-bottom-50 border-bottom"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width font-30 font-bold"
+      className: getclass("title1a", this.props)
     }, contact.skills.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width"
     }, getList(contact.skills.items))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width margin-bottom-50 border-bottom"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "relative width font-30 font-bold"
+      className: getclass("title2a", this.props)
     }, contact.projects.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width"
-    }, getProjects())))));
+    }, getProjects(this.props))))));
   }
 
 }
@@ -51226,46 +51238,9 @@ var resume = function () {
   window.location.href = '/public/img/cpolito_201809.docx';
 };
 
-var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_7__["getName"]());
-  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]());
-  var title;
-  var emailme;
-
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("methods with\nclass, llc", "\n");
-    emailme = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("email me\nchris@methodswithclass.com", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-  } else {
-    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("methods with\nclass, llc", "\n");
-    emailme = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("email me\nchris@methodswithclass.com", "\n");
-  }
-
+var getCard = function () {
+  var emailme = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("email me\nchris@methodswithclass.com", "\n");
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width80 height60 center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width50 white right0 text-right font-70"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-200 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "back",
-    state: "contact"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width teal-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width80 hcenter"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative inline width50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative inline width40 margin-v-100 cell-top"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width-300 hcenter cutoff"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width pointer margin-v-20",
@@ -51293,7 +51268,72 @@ var getElem = function () {
     onClick: resume
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute center"
-  }, "resume.doc")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "resume.doc")));
+};
+
+var getResume = function () {
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width padding-v-50"
+    }, getCard()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width padding-v-50"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
+      textfont: "font-40",
+      title1font: "font-60",
+      title2font: "font-50"
+    }))));
+  } else {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative inline width50"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
+      textfont: "font-15",
+      title1font: "font-40",
+      title2font: "font-30"
+    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative inline width40 margin-v-100 cell-top"
+    }, getCard()));
+  }
+};
+
+var getElem = function () {
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_7__["getName"]());
+  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]());
+  var title;
+
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {
+    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("methods with\nclass, llc", "\n"); // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  } else {
+    title = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("methods with\nclass, llc", "\n");
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-600 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width80 height60 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width50 white right0 text-right font-70"
+  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width-200 height-50"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    name: "back",
+    state: "contact"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width teal-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width80 hcenter"
+  }, getResume())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };

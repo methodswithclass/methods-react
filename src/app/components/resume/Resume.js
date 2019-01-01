@@ -24,7 +24,28 @@ var getList = function ($list) {
   )
 }
 
-var getProjects = function () {
+
+var getclass = function (type, props) {
+
+    if (type == "text") {
+        return "relative width " + props.textfont;
+    } 
+    else if (type == "title1a") {
+
+        return "relative width font-bold " + props.title1font;
+    }
+    else if (type == "title2a") {
+
+        return "relative width font-bold " + props.title2font;
+    }
+    else if (type == "title2b") {
+
+        return "relative width padding-v-20 " + props.title2font;
+    }
+
+}
+
+var getProjects = function (props) {
 
 
     var projects = contact.projects.items.map(function (project, key) {
@@ -33,7 +54,7 @@ var getProjects = function () {
 
             <div key={key} className="relative width margin-v-20">
 
-                <div className="relative width padding-v-20 font-25 font-bold">
+                <div className={getclass("title2b", props)}>
                   {project.title}
                 </div>
 
@@ -79,7 +100,7 @@ class Resume extends Component {
     return ( 
 
 
-      <div className="relative width">
+      <div className={getclass("text", this.props)}>
 
         <div className="relative width80 hcenter margin-v-100 border white-back raised">
 
@@ -95,7 +116,7 @@ class Resume extends Component {
 
             <div className="relative width margin-bottom-50 border-bottom">
 
-              <div className="relative width font-30 font-bold">
+              <div className={getclass("title1a", this.props)}>
                 {contact.skills.title}
               </div>
 
@@ -107,13 +128,13 @@ class Resume extends Component {
 
             <div className="relative width margin-bottom-50 border-bottom">
 
-              <div className="relative width font-30 font-bold">
+              <div className={getclass("title2a", this.props)}>
                 {contact.projects.title}
               </div>
 
               <div className="relative width">
 
-                {getProjects()}
+                {getProjects(this.props)}
 
               </div>
 
