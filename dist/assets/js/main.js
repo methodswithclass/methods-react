@@ -48662,6 +48662,78 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 /***/ }),
 
+/***/ "./app/components/navbar/Navbar.js":
+/*!*****************************************!*\
+  !*** ./app/components/navbar/Navbar.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+var getState = function () {
+  return _services_state_service__WEBPACK_IMPORTED_MODULE_3__["getName"]();
+};
+
+var getBack = function () {
+  return _services_state_service__WEBPACK_IMPORTED_MODULE_3__["getBack"]();
+};
+
+var getBackButton = function () {
+  if (getState() != "home") {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute width-300 height80 vcenter margin-h-20"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      class: "black-back white border raised",
+      name: "back",
+      state: getBack()
+    }));
+  }
+};
+
+class Navbar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    var font;
+
+    if (_services_utility_service__WEBPACK_IMPORTED_MODULE_2__["checkMobile"]()) {
+      font = "font-40";
+    } else {
+      font = "font-20";
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "relative width height-70 white-back",
+      id: "navbar"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute width80 height60 center " + font
+    }, getBackButton(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute width-100 height font-40 margin-h-20 pointer right0"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute center"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      class: "fas fa-cogs"
+    })))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Navbar);
+
+/***/ }),
+
 /***/ "./app/components/navbtn/Iconbtn.js":
 /*!******************************************!*\
   !*** ./app/components/navbtn/Iconbtn.js ***!
@@ -50206,7 +50278,7 @@ var events = _methodswithclass_shared__WEBPACK_IMPORTED_MODULE_0__["events_servi
 /*!***************************************!*\
   !*** ./app/services/state.service.js ***!
   \***************************************/
-/*! exports provided: states, configRouter, plugins, getName, getTitle */
+/*! exports provided: states, configRouter, plugins, getName, getBack, getTitle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50215,6 +50287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configRouter", function() { return configRouter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "plugins", function() { return plugins; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getName", function() { return getName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBack", function() { return getBack; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle", function() { return getTitle; });
 /* harmony import */ var _uirouter_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @uirouter/react */ "../node_modules/@uirouter/react/lib-esm/index.js");
 /* harmony import */ var _states_home_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../states/home/Home */ "./app/states/home/Home.js");
@@ -50238,6 +50311,35 @@ function setStateName($name) {
   statename = $name;
 }
 
+var back = [{
+  id: "home",
+  state: "home",
+  back: "home"
+}, {
+  id: "contact",
+  state: "contact",
+  back: "home"
+}, {
+  id: "chris",
+  state: "chris",
+  back: "contact"
+}, {
+  id: "about",
+  state: "about",
+  back: "home"
+}, {
+  id: "what",
+  state: "what",
+  back: "about"
+}, {
+  id: "apps",
+  state: "apps",
+  back: "what"
+}, {
+  id: "hire",
+  state: "hire",
+  back: "what"
+}];
 var states = [{
   name: 'home',
   url: '/home',
@@ -50329,6 +50431,18 @@ function getName() {
   console.log("get name in service", statename);
   return statename;
 }
+function getBack() {
+  var state = getName();
+  var found = back.find(p => {
+    return p.state == state;
+  });
+
+  if (found) {
+    return found.back;
+  } else {
+    return "home";
+  }
+}
 function getTitle() {
   var name = getName(); // console.log("get name", state, name);
 
@@ -50342,14 +50456,15 @@ function getTitle() {
 /*!*****************************************!*\
   !*** ./app/services/utility.service.js ***!
   \*****************************************/
-/*! exports provided: getUrl, makeTitle, getTitle, setEnv, env, getEnv, jquery, forceMobile, whatDevice, captureError, getViewTypes, checkMobile, toggle, dim, makeAspect, getInterface, isInterface, setInterface, changeInterface, interfaceChanged, resetChanged, stateName */
+/*! exports provided: getUrl, makeTitle, getTitle1, getTitle2, setEnv, env, getEnv, jquery, forceMobile, whatDevice, captureError, getViewTypes, checkMobile, toggle, dim, makeAspect, getInterface, isInterface, setInterface, changeInterface, interfaceChanged, resetChanged, stateName */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrl", function() { return getUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeTitle", function() { return makeTitle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle", function() { return getTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle1", function() { return getTitle1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle2", function() { return getTitle2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setEnv", function() { return setEnv; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "env", function() { return env; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEnv", function() { return getEnv; });
@@ -50399,8 +50514,11 @@ var makeTitle = function ($title, string) {
     }, i);
   }));
 };
-var getTitle = function () {
+var getTitle1 = function () {
   return makeTitle("methods\nwith class, llc", "\n");
+};
+var getTitle2 = function () {
+  return "methods with class, llc";
 };
 
 var getAbsUrl = function () {
@@ -51027,16 +51145,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
-/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
-/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
-/* harmony import */ var _states_about_About_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../states/about/About.css */ "./app/states/about/About.css");
-/* harmony import */ var _states_about_About_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_states_about_About_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _states_about_About_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/about/About.css */ "./app/states/about/About.css");
+/* harmony import */ var _states_about_About_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_states_about_About_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+
 
 
 
@@ -51049,15 +51169,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
-  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
+  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {} else {}
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="absolute width-300 height-50">
+    // 							<Navbtn class="white-back black font-30 border raised-white" name="back" state="home"></Navbtn>
+    // 						</div>
+  } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-400 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     name: "top",
     scroll: "body",
@@ -51071,25 +51194,19 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-300 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "white-back black font-30 border raised-white",
-    name: "back",
-    state: "home"
-  })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle2"]()))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-1000 blue-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width60 height-400 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width50 height center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "What we do",
     state: "what",
     icon: "fa-laptop"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };
 
 var About = function () {
@@ -51111,17 +51228,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
-/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
-/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
-/* harmony import */ var _states_apps_Apps_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../states/apps/Apps.css */ "./app/states/apps/Apps.css");
-/* harmony import */ var _states_apps_Apps_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_states_apps_Apps_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _states_apps_Apps_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/apps/Apps.css */ "./app/states/apps/Apps.css");
+/* harmony import */ var _states_apps_Apps_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_states_apps_Apps_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+
 
 
 
@@ -51135,11 +51254,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var getBlocks = function () {
-  var blocks = _services_data_service__WEBPACK_IMPORTED_MODULE_10__["all"].apps.map(function (info) {
+  var blocks = _services_data_service__WEBPACK_IMPORTED_MODULE_11__["all"].apps.map(function (info) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: info.id,
       className: "relative width"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_block_Block__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_block_Block__WEBPACK_IMPORTED_MODULE_3__["default"], {
       key: info.id,
       scroll: "body",
       info: info
@@ -51151,16 +51270,19 @@ var getBlocks = function () {
 };
 
 var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
-  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
+  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // <div className="absolute width-300 height-50">
+    // 							<Navbtn class="white-back black font-30 border raised-white" name="back" state="what"></Navbtn>
+    // 						</div>
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-400 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     name: "top",
     scroll: "body",
@@ -51174,17 +51296,11 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-300 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "white-back black font-30 border raised-white",
-    name: "back",
-    state: "what"
-  })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle2"]()))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };
 
 var Apps = function () {
@@ -51206,16 +51322,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
-/* harmony import */ var _components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/resume/Resume */ "./app/components/resume/Resume.js");
-/* harmony import */ var _states_people_chris_Chris_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../states/people/chris/Chris.css */ "./app/states/people/chris/Chris.css");
-/* harmony import */ var _states_people_chris_Chris_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_states_people_chris_Chris_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_resume_Resume__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/resume/Resume */ "./app/components/resume/Resume.js");
+/* harmony import */ var _states_people_chris_Chris_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../states/people/chris/Chris.css */ "./app/states/people/chris/Chris.css");
+/* harmony import */ var _states_people_chris_Chris_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_states_people_chris_Chris_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+
 
 
 
@@ -51238,7 +51356,7 @@ var resume = function () {
 };
 
 var getCard = function () {
-  var emailme = _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["makeTitle"]("email me\nchris@methodswithclass.com", "\n");
+  var emailme = _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["makeTitle"]("email me\nchris@methodswithclass.com", "\n");
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width-300 hcenter cutoff"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51271,7 +51389,7 @@ var getCard = function () {
 };
 
 var getResume = function () {
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51280,8 +51398,8 @@ var getResume = function () {
       className: "relative width padding-v-50"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width90 hcenter margin-v-100 border white-back raised"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      contact: _services_data_service__WEBPACK_IMPORTED_MODULE_10__["all"].contact,
       textfont: "font-30",
       title1font: "font-50",
       title2font: "font-40"
@@ -51293,8 +51411,8 @@ var getResume = function () {
       className: "relative inline width50"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "relative width80 hcenter margin-v-100 border white-back raised"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      contact: _services_data_service__WEBPACK_IMPORTED_MODULE_9__["all"].contact,
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resume_Resume__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      contact: _services_data_service__WEBPACK_IMPORTED_MODULE_10__["all"].contact,
       textfont: "font-15",
       title1font: "font-40",
       title2font: "font-30"
@@ -51305,33 +51423,30 @@ var getResume = function () {
 };
 
 var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_7__["getName"]());
-  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]());
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
+  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
 
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_6__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // <div className="absolute width-300 height-50">
+    // 					<Navbtn class="white-back black font-30 border raised-white" name="back" state="contact"></Navbtn>
+    // 				</div>
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-400 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width80 height60 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width white right0 text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_6__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-300 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "white-back black font-30 border raised-white",
-    name: "back",
-    state: "contact"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle2"]()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width teal-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width80 hcenter"
   }, getResume())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 };
 
 var Chris = function () {
@@ -51353,286 +51468,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
-/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
-/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
-/* harmony import */ var _states_contact_Contact_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../states/contact/Contact.css */ "./app/states/contact/Contact.css");
-/* harmony import */ var _states_contact_Contact_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_states_contact_Contact_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
-  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
-
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innercontact" adjustinner="false">
-  } else {}
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width80 height60 center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width white right0 text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-300 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "white-back black font-30 border raised-white",
-    name: "back",
-    state: "home"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-1000 blue4-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width60 height-400 center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width50 height center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    name: "Meet Chris",
-    state: "chris",
-    icon: "fa-user-check"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
-};
-
-var Contact = function () {
-  return getElem();
-};
-
-/***/ }),
-
-/***/ "./app/views/hire.view.js":
-/*!********************************!*\
-  !*** ./app/views/hire.view.js ***!
-  \********************************/
-/*! exports provided: Hire */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hire", function() { return Hire; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
-/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
-/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
-/* harmony import */ var _states_hire_Hire_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../states/hire/Hire.css */ "./app/states/hire/Hire.css");
-/* harmony import */ var _states_hire_Hire_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_states_hire_Hire_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var getBlocks = function () {
-  var blocks = _services_data_service__WEBPACK_IMPORTED_MODULE_10__["all"].blocks.map(function (info) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: info.id,
-      className: "relative width"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_block_Block__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      key: info.id,
-      scroll: "body",
-      info: info
-    }));
-  });
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, blocks);
-};
-
-var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_8__["getName"]());
-  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]());
-
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_7__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
-  } else {}
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width height"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width height",
-    id: "innerhome"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width80 height40 border center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute top0 right0 width white text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_7__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-300 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "white-back black font-30 border raised-white",
-    name: "back",
-    state: "what"
-  })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
-};
-
-var Hire = function () {
-  return getElem();
-};
-
-/***/ }),
-
-/***/ "./app/views/home.view.js":
-/*!********************************!*\
-  !*** ./app/views/home.view.js ***!
-  \********************************/
-/*! exports provided: Home */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Home", function() { return Home; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
-/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
 /* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
 /* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
-/* harmony import */ var _states_home_Home_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/home/Home.css */ "./app/states/home/Home.css");
-/* harmony import */ var _states_home_Home_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_states_home_Home_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-var getElem = function () {
-  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
-  console.log("check mobile home", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
-
-  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
-    // <div className="relative width height-50 white">
-    // 	<div className="relative width-200 height margin-v-20">
-    // 		<Navbtn name="about" state="about"></Navbtn>
-    // 	</div>
-    // 	<div className="relative width-200 height margin-v-20">
-    // 		<Navbtn name="what" state="what"></Navbtn>
-    // 	</div>
-    // 	<div className="relative width-200 height margin-v-20">
-    // 		<Navbtn name="contact" state="contact"></Navbtn>
-    // 	</div>
-    // 	<div className="relative width-200 height margin-v-20">
-    // 		<Navbtn name="chris" state="chris"></Navbtn>
-    // 	</div>
-    // </div>
-  } else {}
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-600 black-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width height"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width height",
-    id: "innerhome"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width80 height40 center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute top0 right0 width white text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width white bottom0 text-right"
-  }, "we make your ideas and your home come to life with class"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-1000 green7-back"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width60 height-400 center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width50 height"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    name: "Contact us",
-    state: "contact",
-    icon: "fa-user-check"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width50 height right0"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    name: "About us",
-    state: "about",
-    icon: "fa-laptop"
-  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
-};
-
-var Home = function () {
-  return getElem();
-};
-
-/***/ }),
-
-/***/ "./app/views/what.view.js":
-/*!********************************!*\
-  !*** ./app/views/what.view.js ***!
-  \********************************/
-/*! exports provided: What */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "What", function() { return What; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
-/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
-/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
-/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
-/* harmony import */ var _states_what_What_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/what/What.css */ "./app/states/what/What.css");
-/* harmony import */ var _states_what_What_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_states_what_What_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _states_contact_Contact_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/contact/Contact.css */ "./app/states/contact/Contact.css");
+/* harmony import */ var _states_contact_Contact_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_states_contact_Contact_css__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
@@ -51656,13 +51497,292 @@ var getElem = function () {
   console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
   console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
 
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innercontact" adjustinner="false">
+    // <div className="absolute width-300 height-50">
+    // 	<Navbtn class="white-back black font-30 border raised-white" name="back" state="home"></Navbtn>
+    // </div>
+  } else {}
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-400 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width80 height60 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width white right0 text-right font-70"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle2"]()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-1000 blue4-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width60 height-400 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width50 height center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "Meet Chris",
+    state: "chris",
+    icon: "fa-user-check"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+};
+
+var Contact = function () {
+  return getElem();
+};
+
+/***/ }),
+
+/***/ "./app/views/hire.view.js":
+/*!********************************!*\
+  !*** ./app/views/hire.view.js ***!
+  \********************************/
+/*! exports provided: Hire */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hire", function() { return Hire; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _states_hire_Hire_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/hire/Hire.css */ "./app/states/hire/Hire.css");
+/* harmony import */ var _states_hire_Hire_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_states_hire_Hire_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var getBlocks = function () {
+  var blocks = _services_data_service__WEBPACK_IMPORTED_MODULE_11__["all"].blocks.map(function (info) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: info.id,
+      className: "relative width"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_block_Block__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      key: info.id,
+      scroll: "body",
+      info: info
+    }));
+  });
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, blocks);
+};
+
+var getElem = function () {
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
+  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
+
   if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
+    // <div className="absolute width-300 height-50">
+    // 							<Navbtn class="white-back black font-30 border raised-white" name="back" state="what"></Navbtn>
+    // 						</div>
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-400 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height",
+    id: "innerhome"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width80 height40 border center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute top0 right0 width white text-right font-70"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle2"]()))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+};
+
+var Hire = function () {
+  return getElem();
+};
+
+/***/ }),
+
+/***/ "./app/views/home.view.js":
+/*!********************************!*\
+  !*** ./app/views/home.view.js ***!
+  \********************************/
+/*! exports provided: Home */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Home", function() { return Home; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
+/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _states_home_Home_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../states/home/Home.css */ "./app/states/home/Home.css");
+/* harmony import */ var _states_home_Home_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_states_home_Home_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var getElem = function () {
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_10__["getName"]());
+  console.log("check mobile home", _services_utility_service__WEBPACK_IMPORTED_MODULE_9__["checkMobile"]());
+
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_9__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
+    // <div className="relative width height-50 white">
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="about" state="about"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="what" state="what"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="contact" state="contact"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="chris" state="chris"></Navbtn>
+    // 	</div>
+    // </div>
+  } else {}
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-600 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height",
+    id: "innerhome"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width80 height40 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute top0 right0 width white text-right font-70"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_9__["getTitle1"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width white bottom0 text-right"
+  }, "we make your ideas and your home come to life with class"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-1000 green7-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width60 height-400 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width50 height"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "Contact us",
+    state: "contact",
+    icon: "fa-user-check"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width50 height right0"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "About us",
+    state: "about",
+    icon: "fa-laptop"
+  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
+};
+
+var Home = function () {
+  return getElem();
+};
+
+/***/ }),
+
+/***/ "./app/views/what.view.js":
+/*!********************************!*\
+  !*** ./app/views/what.view.js ***!
+  \********************************/
+/*! exports provided: What */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "What", function() { return What; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
+/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _states_what_What_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../states/what/What.css */ "./app/states/what/What.css");
+/* harmony import */ var _states_what_What_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_states_what_What_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var getElem = function () {
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_10__["getName"]());
+  console.log("check mobile", _services_utility_service__WEBPACK_IMPORTED_MODULE_9__["checkMobile"]());
+
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_9__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // <div className="absolute width-300 height-50">
+    // 							<Navbtn class="white-back black font-30 border raised-white" name="back" state="about"></Navbtn>
+    // 						</div>
+  } else {}
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-400 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     name: "top",
     scroll: "body",
@@ -51676,13 +51796,7 @@ var getElem = function () {
     className: "absolute width80 height40 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute top0 right0 width white text-right font-70"
-  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle"]()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "absolute width-300 height-50"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "white-back black font-30 border raised-white",
-    name: "back",
-    state: "about"
-  })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_9__["getTitle2"]()))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-1000 green-back"
@@ -51690,19 +51804,19 @@ var getElem = function () {
     className: "relative width60 height-400 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width50 height"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "Apps",
     state: "apps",
     icon: "fa-tablet"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width50 height right0"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "Hire",
     state: "hire",
     icon: "fa-tools"
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
 };
 
 var What = function () {

@@ -89,7 +89,7 @@ app.use(middleware.errorHandler());
 var env = process.env.NODE_ENV;
 var port;
 
-	
+
 if (process.env.PORT) {
 	port = process.env.PORT;
 }
@@ -115,7 +115,3 @@ var listener = app.listen(port, function () {
 
 	console.log("listening on port", currentPort);
 });
-
-
-
-

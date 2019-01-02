@@ -41,9 +41,14 @@ export var makeTitle = function ($title, string) {
 }
 
 
-export var getTitle = function () {
+export var getTitle1 = function () {
 
     return makeTitle("methods\nwith class, llc", "\n");
+}
+
+export var getTitle2 = function () {
+
+    return "methods with class, llc"
 }
 
 var getAbsUrl = function () {

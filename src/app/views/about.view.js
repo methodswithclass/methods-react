@@ -7,6 +7,7 @@
 import React from 'react';
 
 import Navbtn from "../components/navbtn/Navbtn";
+import Navbar from "../components/navbar/Navbar";
 import Iconbtn from "../components/navbtn/Iconbtn";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
@@ -32,8 +33,12 @@ var getElem = function () {
 
 	if (u.checkMobile()) {
 
-		
-	}	
+
+		// <div className="absolute width-300 height-50">
+		// 							<Navbtn class="white-back black font-30 border raised-white" name="back" state="home"></Navbtn>
+		// 						</div>
+
+	}
 	else {
 
 
@@ -42,22 +47,22 @@ var getElem = function () {
 
 	return (
 	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
-					
 
-	    		<div className="relative width height-600 black-back">
+
+				<Navbar></Navbar>
+
+	    		<div className="relative width height-400 black-back">
 					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
 						<div className="absolute width height" id="innerhome">
 							<div className="absolute width80 height40 center">
 
 								<div className="absolute top0 right0 width white text-right font-70">
-									{u.getTitle()}
+									{u.getTitle2()}
 								</div>
 
-								
-								<div className="absolute width-300 height-50">
-									<Navbtn class="white-back black font-30 border raised-white" name="back" state="home"></Navbtn>
-								</div>
-								
+
+
+
 							</div>
 						</div>
 					</div>

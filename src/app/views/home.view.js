@@ -7,6 +7,7 @@
 import React from 'react';
 
 import Navbtn from "../components/navbtn/Navbtn";
+import Navbar from "../components/navbar/Navbar";
 import Iconbtn from "../components/navbtn/Iconbtn";
 import Block from "../components/block/Block";
 import Footer from "../components/footer/Footer";
@@ -32,7 +33,7 @@ var getElem = function () {
 	console.log("state name", state.getName());
 	console.log("check mobile home", u.checkMobile());
 
-	
+
 
 	if (u.checkMobile()) {
 
@@ -60,10 +61,10 @@ var getElem = function () {
 								// 		<Navbtn name="chris" state="chris"></Navbtn>
 								// 	</div>
 								// </div>
-	}	
+	}
 	else {
 
-		
+
 	}
 
 
@@ -71,7 +72,9 @@ var getElem = function () {
 
 	return (
 	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
-					
+
+
+				<Navbar></Navbar>
 
 	    		<div className="relative width height-600 black-back">
 					<div className="absolute width height">
@@ -79,14 +82,14 @@ var getElem = function () {
 							<div className="absolute width80 height40 center">
 
 								<div className="absolute top0 right0 width white text-right font-70">
-									{u.getTitle()}
+									{u.getTitle1()}
 								</div>
 
-								
-								<div className="absolute width white bottom0 text-right"> 
-									we make your ideas and your home come to life with class 
+
+								<div className="absolute width white bottom0 text-right">
+									we make your ideas and your home come to life with class
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -95,8 +98,8 @@ var getElem = function () {
 
 
 
-			    <div className="relative width"> 
-			        	
+			    <div className="relative width">
+
 			        <div className="relative width height-1000 green7-back">
 
 			        	<div className="relative width60 height-400 center">

@@ -20,99 +20,138 @@ function setStateName ($name) {
 }
 
 
-export var states = [
+var back = [
 {
-  name: 'home',
-  url: '/home',
-  component: Home,
-  resolve:[{
-    token: 'home',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("home");
-    }
-  }]
+	id:"home",
+	state:"home",
+	back:"home"
 },
 {
-  name: 'about',
-  url: '/about',
-  component: About,
-  resolve:[{
-    token: 'about',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("about");
-    }
-  }]
+	id:"contact",
+	state:"contact",
+	back:"home"
 },
 {
-  name: 'what',
-  url: '/about/whatwedo',
-  component: What,
-  resolve:[{
-    token: 'what',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("what");
-    }
-  }]
+	id:"chris",
+	state:"chris",
+	back:"contact"
 },
 {
-  name: 'apps',
-  url: '/about/whatwedo/apps',
-  component: Apps,
-  resolve:[{
-    token: 'apps',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("apps");
-    }
-  }]
+	id:"about",
+	state:"about",
+	back:"home"
 },
 {
-  name: 'hire',
-  url: '/about/whatwedo/hire',
-  component: Hire,
-  resolve:[{
-    token: 'hire',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("hire");
-    }
-  }]
+	id:"what",
+	state:"what",
+	back:"about"
 },
 {
-  name: 'contact',
-  url: '/contact',
-  component: Contact,
-  resolve:[{
-    token: 'contact',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("contact");
-    }
-  }]
+	id:"apps",
+	state:"apps",
+	back:"what"
 },
 {
-  name: 'chris',
-  url: '/contact/chris',
-  component: Chris,
-  resolve:[{
-    token: 'chris',
-    deps: ['$transition$'],
-    resolveFn: (trans) => {
-      setStateName("chris");
-    }
-  }]
+	id:"hire",
+	state:"hire",
+	back:"what"
 }
 ]
 
-export const configRouter = ($router) => { 
-  
+
+export var states = [
+{
+	name: 'home',
+	url: '/home',
+	component: Home,
+	resolve:[{
+	token: 'home',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("home");
+	}
+	}]
+},
+{
+	name: 'about',
+	url: '/about',
+	component: About,
+	resolve:[{
+	token: 'about',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("about");
+	}
+	}]
+},
+{
+	name: 'what',
+	url: '/about/whatwedo',
+	component: What,
+	resolve:[{
+	token: 'what',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("what");
+	}
+	}]
+},
+{
+	name: 'apps',
+	url: '/about/whatwedo/apps',
+	component: Apps,
+	resolve:[{
+	token: 'apps',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("apps");
+	}
+	}]
+},
+{
+	name: 'hire',
+	url: '/about/whatwedo/hire',
+	component: Hire,
+	resolve:[{
+	token: 'hire',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("hire");
+	}
+	}]
+},
+{
+	name: 'contact',
+	url: '/contact',
+	component: Contact,
+	resolve:[{
+	token: 'contact',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("contact");
+	}
+	}]
+},
+{
+	name: 'chris',
+	url: '/contact/chris',
+	component: Chris,
+	resolve:[{
+	token: 'chris',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("chris");
+	}
+	}]
+}
+]
+
+export const configRouter = ($router) => {
+
 	console.log("$router", $router);
 
 	$router.urlRouter.otherwise({state:"home"});
-	$router.urlService.config.html5Mode(true); 
+	$router.urlService.config.html5Mode(true);
 
 }
 
@@ -136,16 +175,36 @@ export function getName() {
 
 }
 
+export function getBack () {
+
+	var state = getName();
+
+
+	var found = back.find((p) => {
+
+		return p.state == state;
+	})
+
+
+	if (found) {
+
+		return found.back;
+	}
+	else {
+		return "home";
+	}
+}
+
 
 
 export function getTitle () {
 
-  var name = getName();
+	var name = getName();
 
-  // console.log("get name", state, name);
+	// console.log("get name", state, name);
 
-  var capital = name.substr(0,1);
+	var capital = name.substr(0,1);
 
-  return capital.toUpperCase() + name.slice(1);
+	return capital.toUpperCase() + name.slice(1);
 }
 

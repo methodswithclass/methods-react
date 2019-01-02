@@ -131,6 +131,3 @@ module.exports = {
 	livereloadPort:livereloadPort,
 	watch:watch
 }
-
-
-

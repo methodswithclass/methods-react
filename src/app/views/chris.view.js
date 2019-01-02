@@ -7,6 +7,7 @@
 import React from 'react';
 
 import Navbtn from "../components/navbtn/Navbtn";
+import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import Resume from "../components/resume/Resume";
 
@@ -113,7 +114,7 @@ var getResume = function () {
 
 	}
 	else {
-		
+
 
 		return (
 
@@ -147,9 +148,13 @@ var getElem = function () {
 	console.log("check mobile", u.checkMobile());
 
 	if (u.checkMobile()) {
-		
+
 		// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-	}	
+
+		// <div className="absolute width-300 height-50">
+		// 					<Navbtn class="white-back black font-30 border raised-white" name="back" state="contact"></Navbtn>
+		// 				</div>
+	}
 	else {
 
 
@@ -159,21 +164,21 @@ var getElem = function () {
 
 
 	return (
-	    	
+
 
 			<div className="relative width height scrollY cutoffX scroll-vertical-dark-narrow">
 
-				<div className="relative width height-600 black-back">
+				<Navbar></Navbar>
+
+				<div className="relative width height-400 black-back">
 
 					<div className="absolute width80 height60 center">
-						
+
 						<div className="absolute width white right0 text-right font-70">
-							{u.getTitle()}
+							{u.getTitle2()}
 						</div>
 
-						<div className="absolute width-300 height-50">
-							<Navbtn class="white-back black font-30 border raised-white" name="back" state="contact"></Navbtn>
-						</div>
+
 
 					</div>
 
@@ -197,7 +202,7 @@ var getElem = function () {
 
 			</div>
 
-	
+
 
 	    );
 }

@@ -37,13 +37,13 @@ const webpackConfig = require("./webpack.config.js").dev;
 const webpackTestConfig = require("./webpack.config.js").test;
 
 const myLintReporter = map(function (file, cb) {
-	
+
 	if (file.jshint.success) return cb(null, file);
 
 	console.log('JSHINT fail in', file.path);
-	
+
 	file.jshint.results.forEach(function (result) {
-		
+
 		if (!result.error) return;
 
 		const err = result.error
@@ -106,57 +106,57 @@ var injectJS = function () {
 
 
 	var important = gulp.src([
-	                         'dist/assets/js/vendor' + (!minify.vendor.full.make && minify.vendor.min.make && minify.vendor.min.inject ? ".min" : "") + '.js'
-	                        ], 
-	                        {
-						        read:false
-						    }
-						    );
+													'dist/assets/js/vendor' + (!minify.vendor.full.make && minify.vendor.min.make && minify.vendor.min.inject ? ".min" : "") + '.js'
+													],
+													{
+										read:false
+								}
+								);
 
 
 
 
 	var standard = gulp.src([
-	                        "dist/assets/js/main" + (!minify.main.full.make && minify.main.min.make && minify.main.min.inject ? ".min" : "") + ".js",
-	                        'dist/assets/**/*.css'
-	                        ], 
-	                        {
-						        read:false
-						    });
+													"dist/assets/js/main" + (!minify.main.full.make && minify.main.min.make && minify.main.min.inject ? ".min" : "") + ".js",
+													'dist/assets/**/*.css'
+													],
+													{
+										read:false
+								});
 
 
 
 	return gulp.src('src/index.html')
 	.pipe(inject(important, {
-						        addRootSlash : true,
-						        transform : function ( filePath, file, i, length ) {
-						            
-						            var newPath = filePath.replace( 'dist/assets/', 'public/' );
-						            
-						            console.log('inject js script =', newPath);
-						            
-						            return '<script src="' + newPath + '"></script>';
-						        },
-						        starttag: '<!-- inject:head:{{ext}} -->'
-						    }
-						    )
+										addRootSlash : true,
+										transform : function ( filePath, file, i, length ) {
+
+												var newPath = filePath.replace( 'dist/assets/', 'public/' );
+
+												console.log('inject js script =', newPath);
+
+												return '<script src="' + newPath + '"></script>';
+										},
+										starttag: '<!-- inject:head:{{ext}} -->'
+								}
+								)
 	)
 	.pipe(inject(standard, {
-						        addRootSlash : true,
-						        transform : function ( filePath, file, i, length ) {
-						            
-						            var newPath = filePath.replace( 'dist/assets/', 'public/' )
+										addRootSlash : true,
+										transform : function ( filePath, file, i, length ) {
 
-						            if (filePath.indexOf("css") != -1) {
-						            	console.log('inject css script =', newPath);
-						            	return '<link rel="stylesheet" type="text/css" href="' + newPath + '">'
-						            }
-						            else {
-						            	console.log('inject js script =', newPath);
-						            	return '<script src="' + newPath + '"></script>';
-						            }
+												var newPath = filePath.replace( 'dist/assets/', 'public/' )
 
-						        }
+												if (filePath.indexOf("css") != -1) {
+													console.log('inject css script =', newPath);
+													return '<link rel="stylesheet" type="text/css" href="' + newPath + '">'
+												}
+												else {
+													console.log('inject js script =', newPath);
+													return '<script src="' + newPath + '"></script>';
+												}
+
+										}
 							}
 							)
 	)
@@ -190,16 +190,16 @@ var jestTemp = function () {
 var jestRun = function () {
 
 	var jestConfig = {
-	    "preprocessorIgnorePatterns": [
-		    "<rootDir>/dist/", 
-		    "<rootDir>/node_modules/"
-	    ],
-	    "automock": false
+			"preprocessorIgnorePatterns": [
+				"<rootDir>/dist/",
+				"<rootDir>/node_modules/"
+			],
+			"automock": false
 	}
 
 	return gulp.src([
-	                './temp/test/**/*.js',
-	                ])
+									'./temp/test/**/*.js',
+									])
 	.pipe(jest(jestConfig));
 }
 
@@ -209,8 +209,8 @@ var jestRun = function () {
 var scripts = function() {
 
 	return gulp.src(mainScripts)
-    .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest("dist/assets/js"));
+		.pipe(webpack(webpackConfig))
+		.pipe(gulp.dest("dist/assets/js"));
 
 };
 
@@ -233,9 +233,9 @@ var vendor = function () {
 
 
 	var js = gulp.src([
-	                  "temp/vendor/shim.js",
-	                  "temp/vendor/**/*.js"
-	                  ])
+										"temp/vendor/shim.js",
+										"temp/vendor/**/*.js"
+										])
 	.pipe(concat("vendor.js"))
 
 	if (minify.vendor.full.make) {
@@ -270,16 +270,16 @@ var vendor = function () {
 };
 
 var apiSass1 = function () {
-  return gulp.src(sassStyles1)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest("temp/css"));
+	return gulp.src(sassStyles1)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest("temp/css"));
 }
 
 
 var apiSass2 = function () {
-  return gulp.src(sassStyles2)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest("temp/css2"));
+	return gulp.src(sassStyles2)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest("temp/css2"));
 }
 
 
@@ -292,7 +292,7 @@ var styles = function() {
 	var cssSrc = gulp.src(cssStyles)
 	.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'));
 
-	
+
 	var css = cssSrc
 	.pipe(concat("classes.css"))
 	.pipe(gulp.dest('dist/assets/css'));
@@ -328,10 +328,10 @@ var fonts = function () {
 
 var index = function () {
 
-	return gulp.src([ 
-    "./favicon.ico",
-    "./src/index.html"
-    ]).pipe(gulp.dest("dist"));
+	return gulp.src([
+		"./favicon.ico",
+		"./src/index.html"
+		]).pipe(gulp.dest("dist"));
 }
 
 var misc = function() {
@@ -363,7 +363,7 @@ var serveFunc = function (done) {
 
 	// livereload.listen({port:config.livereloadPort});
 
-	var stream = nodemon({ 
+	var stream = nodemon({
 		script: path.join(__dirname, "server.js"),
 		ext:"js html css scss json",
 		watch:["./src", "config.js", "./backend"]
@@ -399,18 +399,18 @@ var serveFunc = function (done) {
 	// })
 
 	stream.on('SIGINT', function () {
-	    console.log("ctrl+c nodemon");
-	    nodemon.emit('quit');
-	    process.exit(0);
+			console.log("ctrl+c nodemon");
+			nodemon.emit('quit');
+			process.exit(0);
 	});
 
 	stream.on("crash", function () {
-		
+
 		stream.emit('restart', 10);
 	})
 
 	return stream;
-	
+
 }
 
 
@@ -424,17 +424,17 @@ var serveFuncListen = function (done) {
 
 
 	done();
-	
+
 }
 
 
 var watch = function () {
 	livereload.listen({port:config.livereloadPort });
 	return gulp.watch([
-	                  "./src/**/*.*",
-	                  "./backend/**/*.js",
-	                  "!./src/app/**/*.test.js"
-	                  ], gulp.series("listen"));
+										"./src/**/*.*",
+										"./backend/**/*.js",
+										"!./src/app/**/*.test.js"
+										], gulp.series("listen"));
 }
 
 
@@ -474,10 +474,3 @@ gulp.task("build", buildTask);
 gulp.task("serve", serveTask);
 gulp.task("listen", serveTaskListen);
 gulp.task("watch", serveWatch);
-
-
-
-
-
-
-
