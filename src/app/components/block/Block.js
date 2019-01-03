@@ -16,7 +16,7 @@ var hold = function () {
 
   // <div className="relative width height-800 cutoff noedge" parallax name="{{info.id}}" scroll="body" src="{{info.back}}" img-id="parallax-img-{{info.index}}" adjustinner="true" ng-click='clicked()'>
 
-  
+
 }
 
 var getId = function (name, $info) {
@@ -32,7 +32,7 @@ var chooseElem = function ($$info) {
       if (u.checkMobile()) {
 
           return (
-                  
+
                   <div className="absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer">
                     <div className="absolute center font-25">
                       click here to play gravity
@@ -43,7 +43,7 @@ var chooseElem = function ($$info) {
       }
       else {
           return (
-                  
+
                   <div className="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
                     <div className="absolute center font-25">
                       visit on your mobile device to play
@@ -104,7 +104,7 @@ var clicked = function (info) {
           window.open("https://code.methodswithclass.com", "_blank");
       }
     }
-    
+
 }
 
 
@@ -127,12 +127,12 @@ class Block extends Component {
 
 
     info = this.props.info;
-    
+
     console.log("info", info);
 
     // name={info.id} scroll="body" src={info.back} img-id={'parallax-img-' + info.index} adjustinner="true"
 
-    return ( 
+    return (
 
 
 
@@ -141,7 +141,7 @@ class Block extends Component {
 
 
 
-          <div className="relative width height-400 white-back cutoff noedge" id={getId('sep', info)}>
+          <div className="relative width height-200 white-back cutoff noedge" id={getId('sep', info)}>
 
               <div className="relative width60 font-30 text-center center" id={getId('desc', info)}>{getHtml(info.description)}</div>
 
@@ -165,7 +165,7 @@ class Block extends Component {
 
       </div>
 
-      
+
     );
   }
 }

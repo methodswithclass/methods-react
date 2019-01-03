@@ -54,13 +54,16 @@ class Navbar extends Component {
 	render() {
 
 	var font;
+	var height;
 
 	if (u.checkMobile()) {
 
 		font = "font-40";
+		height = "height-200";
 	}
 	else {
 		font = "font-20";
+		height = "height-70";
 	}
 
 
@@ -69,7 +72,7 @@ class Navbar extends Component {
 
 
 
-		<div className="relative width height-70 white-back" id="navbar">
+		<div className={"relative width white-back " + height} id="navbar">
 
 			<div className={"absolute width80 height60 center " + font}>
 				{getBackButton()}
