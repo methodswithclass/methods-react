@@ -12,25 +12,13 @@ import Hire from "../states/hire/Hire";
 import Chris from "../states/people/chris/Chris";
 import Settings from "../states/settings/Settings";
 
+
+
+import * as h from "./history.service";
+
+
 var statename = "";
-var history = [];
-var previousIndex = 1;
-var pressedBack = false;
 
-function $history ($name) {
-
-
-	if ($name == "home") {
-		history = ["home"];
-		previousIndex = 1;
-	}
-	else if ($name != "settings" && !pressedBack) {
-		history.splice(0, 0, $name);
-	}
-
-	pressedBack = false;
-
-}
 
 
 function setStateName ($name) {
@@ -39,9 +27,7 @@ function setStateName ($name) {
 
 	statename = $name;
 
-	$history($name);
-
-
+	h.$history($name);
 
 }
 
@@ -204,10 +190,6 @@ export var plugins = [pushStateLocationPlugin];
 
 
 
-
-
-
-
 export function getName() {
 
 	// var name = router.stateService.current.name;
@@ -237,42 +219,6 @@ export function getBack () {
 		return "home";
 	}
 }
-
-
-export var changePreviousIndex = function () {
-
-	if (getName() != "settings") {
-		previousIndex++;
-	}
-	pressedBack = true;
-}
-
-var getPreviousIndex = function () {
-
-	var previousPage = 1;
-
-
-	if (getName() == "settings") {
-		console.log("is settings \n\n\n\n\n\n\n\n");
-		return 0;
-	}
-	else {
-
-		previousPage = previousIndex;
-
-		console.log("previous", previousPage);
-
-		return previousPage;
-	}
-
-
-}
-
-export function getPreviousName () {
-
-	return history[getPreviousIndex()];
-}
-
 
 
 export function getTitle () {

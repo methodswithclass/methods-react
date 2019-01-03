@@ -5,21 +5,21 @@ import Navbtn from "../navbtn/Navbtn";
 import Settingsbtn from "../navbtn/Settingsbtn";
 
 import * as u from "../../services/utility.service";
-import * as $state from "../../services/state.service";
+import * as h from "../../services/history.service";
 
 import '../../../assets/css/classes.css';
 
 
-var settings = true;
+var settings = false;
 
 var getState = function () {
 
-	return $state.getName();
+	return h.getName();
 }
 
 var getBack = function () {
 
-	return $state.getPreviousName();
+	return h.getPreviousName();
 }
 
 var getBackButton = function () {
@@ -43,9 +43,15 @@ var getSettings = function () {
 
 		return (
 
-			<Settingsbtn></Settingsbtn>
+			<div><Settingsbtn></Settingsbtn></div>
 		)
 	}
+}
+
+
+var getImage = function () {
+
+	return "/public/img/methods_icon.png";
 }
 
 class Navbar extends Component {
@@ -74,10 +80,14 @@ class Navbar extends Component {
 
 		<div className={"relative width white-back " + height} id="navbar">
 
-			<div className={"absolute width80 height60 center " + font}>
+			<div className={"absolute width90 height60 center " + font}>
 				{getBackButton()}
 
 				{getSettings()}
+
+				<div className="absolute width-100 height margin-h-20 right0">
+					<img className="absolute height width-auto" src={getImage()} />
+				</div>
 			</div>
 
 		</div>

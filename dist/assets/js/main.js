@@ -48676,7 +48676,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
 /* harmony import */ var _navbtn_Settingsbtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbtn/Settingsbtn */ "./app/components/navbtn/Settingsbtn.js");
 /* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_history_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/history.service */ "./app/services/history.service.js");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -48685,14 +48685,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var settings = true;
+var settings = false;
 
 var getState = function () {
-  return _services_state_service__WEBPACK_IMPORTED_MODULE_4__["getName"]();
+  return _services_history_service__WEBPACK_IMPORTED_MODULE_4__["getName"]();
 };
 
 var getBack = function () {
-  return _services_state_service__WEBPACK_IMPORTED_MODULE_4__["getPreviousName"]();
+  return _services_history_service__WEBPACK_IMPORTED_MODULE_4__["getPreviousName"]();
 };
 
 var getBackButton = function () {
@@ -48709,8 +48709,12 @@ var getBackButton = function () {
 
 var getSettings = function () {
   if (settings) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbtn_Settingsbtn__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbtn_Settingsbtn__WEBPACK_IMPORTED_MODULE_2__["default"], null));
   }
+};
+
+var getImage = function () {
+  return "/public/img/methods_icon.png";
 };
 
 class Navbar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
@@ -48719,7 +48723,7 @@ class Navbar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     var height;
 
     if (_services_utility_service__WEBPACK_IMPORTED_MODULE_3__["checkMobile"]()) {
-      font = "font-40";
+      font = "font-50";
       height = "height-200";
     } else {
       font = "font-20";
@@ -48730,8 +48734,13 @@ class Navbar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "relative width white-back " + height,
       id: "navbar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width80 height60 center " + font
-    }, getBackButton(), getSettings()));
+      className: "absolute width90 height60 center " + font
+    }, getBackButton(), getSettings(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute width-100 height margin-h-20 right0"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "absolute height width-auto",
+      src: getImage()
+    }))));
   }
 
 }
@@ -48805,7 +48814,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _uirouter_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @uirouter/react */ "../node_modules/@uirouter/react/lib-esm/index.js");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_history_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/history.service */ "./app/services/history.service.js");
 
 
 
@@ -48819,7 +48828,7 @@ class Navbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       to: this.props.state
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width height rounded10 pointer " + this.props.class,
-      onClick: _services_state_service__WEBPACK_IMPORTED_MODULE_3__["changePreviousIndex"]
+      onClick: _services_history_service__WEBPACK_IMPORTED_MODULE_3__["changePreviousIndex"]
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute center"
     }, this.props.name))));
@@ -48856,7 +48865,7 @@ class Settingsbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISref"], {
       to: "settings"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width-100 height font-40 margin-h-20 pointer right0"
+      className: "absolute width-100 height font-40 margin-h-20 pointer right-200"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute center"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -49934,20 +49943,17 @@ var contact = {
   bio: `
 
 
-	I am a software developer with my main focus for the moment on fullstack software for the web.<br><br>
+	I am the developer for Methods with Class, LLC. We are a small firm dedicated to helping people and businesses with websites and home installations. <br><br>
 
-	What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br>
+	My main focus in development, for the moment, is on fullstack software for the web. What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br>
 
 	I'm an AWS developer as well, writing automated bash scripts, and doing other Linux development. I'm experienced in Agile methodologies.<br><br>
 
 
-	I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM registry and Bower and have plans to upgrade my packages to Yarn soon.<br><br>
+	I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM and Bower registries.<br><br>
 
 
 	This process, preferrable to simply posting to GitHub, keeps my code in house and centralized, it makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, distribute my work to those who might want to use it for their own projects, and document it robustly. And some of my work is on Github anyway :)<br><br>
-
-
-	I am looking for work as a JavaScript engineer, software architect, and/or developer where I would provide solutions, work product, or simply recommendations and consultations to address my employer's needs and the needs of their customers and clients.
 
 	`,
   skills: {
@@ -49980,7 +49986,7 @@ var contact = {
       title: "Methods with Class",
       href: "www.methodswithclass.com",
       description: "Fully responsive, view on both desktop and mobile",
-      items: ["Designed and Developed front end Angular app to be online business card", "Developed parallax scrolling component in Angular that is globally available and is used here", "Responsive design, mobile recognition, changes which view is served depending on device", "Angular single page web app"]
+      items: ["Designed and developed fullstack React/Node/Express single page application", "Responsive design, mobile recognition, serves different html and parameters for different device types", "State based navigation", "Gulp build tools", "Utilizes websocket technology"]
     }]
   }
 };
@@ -49997,6 +50003,65 @@ var all = {
   blocks: blocks,
   contact: contact
 };
+
+/***/ }),
+
+/***/ "./app/services/history.service.js":
+/*!*****************************************!*\
+  !*** ./app/services/history.service.js ***!
+  \*****************************************/
+/*! exports provided: getName, $history, changePreviousIndex, getPreviousName */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getName", function() { return getName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$history", function() { return $history; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changePreviousIndex", function() { return changePreviousIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPreviousName", function() { return getPreviousName; });
+var history = [];
+var previousIndex = 1;
+var pressedBack = false;
+var statename;
+var getName = function () {
+  return statename;
+};
+function $history($name) {
+  statename = $name;
+
+  if ($name == "home") {
+    history = ["home"];
+    previousIndex = 1;
+  } else if ($name != "settings" && !pressedBack) {
+    history.splice(0, 0, $name);
+  }
+
+  pressedBack = false;
+}
+var changePreviousIndex = function () {
+  if (getName() != "settings") {
+    previousIndex++;
+  }
+
+  pressedBack = true;
+};
+
+var getPreviousIndex = function () {
+  var previousPage = 1;
+
+  if (getName() == "settings") {
+    console.log("is settings \n\n\n\n\n\n\n\n");
+    return 0;
+  } else {
+    previousPage = previousIndex;
+    console.log("previous", previousPage);
+    return previousPage;
+  }
+};
+
+function getPreviousName() {
+  return history[getPreviousIndex()];
+}
 
 /***/ }),
 
@@ -50294,7 +50359,7 @@ var events = _methodswithclass_shared__WEBPACK_IMPORTED_MODULE_0__["events_servi
 /*!***************************************!*\
   !*** ./app/services/state.service.js ***!
   \***************************************/
-/*! exports provided: states, configRouter, plugins, getName, getBack, changePreviousIndex, getPreviousName, getTitle */
+/*! exports provided: states, configRouter, plugins, getName, getBack, getTitle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50304,8 +50369,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "plugins", function() { return plugins; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getName", function() { return getName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBack", function() { return getBack; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changePreviousIndex", function() { return changePreviousIndex; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPreviousName", function() { return getPreviousName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle", function() { return getTitle; });
 /* harmony import */ var _uirouter_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @uirouter/react */ "../node_modules/@uirouter/react/lib-esm/index.js");
 /* harmony import */ var _states_home_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../states/home/Home */ "./app/states/home/Home.js");
@@ -50316,6 +50379,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _states_hire_Hire__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/hire/Hire */ "./app/states/hire/Hire.js");
 /* harmony import */ var _states_people_chris_Chris__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../states/people/chris/Chris */ "./app/states/people/chris/Chris.js");
 /* harmony import */ var _states_settings_Settings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../states/settings/Settings */ "./app/states/settings/Settings.js");
+/* harmony import */ var _history_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./history.service */ "./app/services/history.service.js");
+
 
 
 
@@ -50326,25 +50391,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var statename = "";
-var history = [];
-var previousIndex = 1;
-var pressedBack = false;
-
-function $history($name) {
-  if ($name == "home") {
-    history = ["home"];
-    previousIndex = 1;
-  } else if ($name != "settings" && !pressedBack) {
-    history.splice(0, 0, $name);
-  }
-
-  pressedBack = false;
-}
 
 function setStateName($name) {
   // previousIndex++;
   statename = $name;
-  $history($name);
+  _history_service__WEBPACK_IMPORTED_MODULE_9__["$history"]($name);
 }
 
 var back = [{
@@ -50493,30 +50544,6 @@ function getBack() {
   } else {
     return "home";
   }
-}
-var changePreviousIndex = function () {
-  if (getName() != "settings") {
-    previousIndex++;
-  }
-
-  pressedBack = true;
-};
-
-var getPreviousIndex = function () {
-  var previousPage = 1;
-
-  if (getName() == "settings") {
-    console.log("is settings \n\n\n\n\n\n\n\n");
-    return 0;
-  } else {
-    previousPage = previousIndex;
-    console.log("previous", previousPage);
-    return previousPage;
-  }
-};
-
-function getPreviousName() {
-  return history[getPreviousIndex()];
 }
 function getTitle() {
   var name = getName(); // console.log("get name", state, name);

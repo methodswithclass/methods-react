@@ -6,7 +6,7 @@ import { UISref, UISrefActive } from '@uirouter/react';
 import '../../../assets/css/classes.css';
 
 
-import * as state from "../../services/state.service";
+import * as h from "../../services/history.service";
 
 class Navbtn extends Component {
 
@@ -17,7 +17,7 @@ class Navbtn extends Component {
             <UISrefActive class="active">
                 <UISref to={this.props.state}>
 
-                    <div className={"absolute width height rounded10 pointer " + this.props.class} onClick={state.changePreviousIndex}>
+                    <div className={"absolute width height rounded10 pointer " + this.props.class} onClick={h.changePreviousIndex}>
                         <div className="absolute center">{this.props.name}</div>
                     </div>
 

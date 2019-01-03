@@ -98,13 +98,10 @@ var contact = {
 	I'm an AWS developer as well, writing automated bash scripts, and doing other Linux development. I'm experienced in Agile methodologies.<br><br>
 
 
-	I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM registry and Bower and have plans to upgrade my packages to Yarn soon.<br><br>
+	I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM and Bower registries.<br><br>
 
 
 	This process, preferrable to simply posting to GitHub, keeps my code in house and centralized, it makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, distribute my work to those who might want to use it for their own projects, and document it robustly. And some of my work is on Github anyway :)<br><br>
-
-
-	I am looking for work as a JavaScript engineer, software architect, and/or developer where I would provide solutions, work product, or simply recommendations and consultations to address my employer's needs and the needs of their customers and clients.
 
 	`,
 	skills:{
@@ -189,10 +186,11 @@ var contact = {
 			href:"www.methodswithclass.com",
 			description:"Fully responsive, view on both desktop and mobile",
 			items:[
-				"Designed and Developed front end Angular app to be online business card",
-				"Developed parallax scrolling component in Angular that is globally available and is used here",
-				"Responsive design, mobile recognition, changes which view is served depending on device",
-				"Angular single page web app"
+				"Designed and developed fullstack React/Node/Express single page application",
+				"Responsive design, mobile recognition, serves different html and parameters for different device types",
+				"State based navigation",
+				"Gulp build tools",
+				"Utilizes websocket technology"
 			]
 		},
 		]
