@@ -48653,7 +48653,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       id: "footer"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width80 height-30 hcenter bottom-100 text-right white " + font
-    }, "\xA92018 methods with class"));
+    }, "\xA92019 methods with class"));
   }
 
 }
