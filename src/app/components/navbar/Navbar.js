@@ -58,7 +58,7 @@ class Navbar extends Component {
 
 	if (u.checkMobile()) {
 
-		font = "font-40";
+		font = "font-50";
 		height = "height-200";
 	}
 	else {

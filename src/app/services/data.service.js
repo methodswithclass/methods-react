@@ -5,26 +5,16 @@ var apps = [
 {
 	id:'evolve',
 	back:'/assets/img/evolvehuman_black.jpg',
-	description:`
-	
-	have you ever wanted to teach a robot<br>to clean up after you? <br><br>
-
-	well my evolve site is for you
-
-	`
+	description:`have you ever wanted to teach a robot<br>
+	to clean up after you? <br><br>
+	well my evolve site is for you`
 },
 {
 	id:'gravity',
 	back:'/assets/img/gravity.jpg',
-	description:`
-	
-	gravity is a powerful thing. <br><br>
-	
+	description:`gravity is a powerful thing. <br><br>
 	use it to pop bubbles as they wizz around your screen, or to balance an object in the right place.<br><br>
-
-	gravity has never been this fun
-	
-	`
+	gravity has never been this fun`
 
 }
 ]
@@ -35,13 +25,8 @@ var blocks = [
 {
 	id:'code',
 	back:'/assets/img/matrix2.jpg',
-	description:`
-
-	we offer code to the masses<br><br>
-
-	feast and be merry :-)
-
-	`
+	description:`we offer code to the masses<br><br>
+	feast and be merry :-)`
 },
 {
 	id:'hire',
@@ -52,34 +37,22 @@ var blocks = [
 	id:'home',
 	back:'/assets/img/home.jpg',
 	description:`
-
 	and we come to your home and make it smart <br><br>
 
 	cuz we're smart too
-
 	`
 },
 {
 	id:'poetry',
 	back:'/assets/img/code-poetry.jpg',
-	description:`
-
-	what we do is more than just <br><br>
-
-	source code production and client work
-
-	`
+	description:`what we do is more than just <br><br>
+	source code production and client work`
 },
 {
 	id:'intense',
 	back:'/assets/img/intense_coding.jpg',
-	description:`
-
-	we enjoy what we do<br><br>
-
-	and we do it a lot
-
-	`
+	description:`we enjoy what we do<br><br>
+	and we do it a lot`
 },
 {
 	id:'procrastinate',
@@ -98,14 +71,9 @@ var blocks = [
 },
 {
 	id:'cry',
-	back:'/assets/img/crying.jpg',
-	description:`
-
-	which sometimes makes us<br><br> 
-
-	want to do this
-
-	`
+	back:'/assets/img/hair.jpg',
+	description:`which sometimes makes us<br><br>
+	want to do this`
 },
 {
 	id:'html',
@@ -125,7 +93,7 @@ var contact = {
 
 	I am a software developer with my main focus for the moment on fullstack software for the web.<br><br>
 
-	What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br> 
+	What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br>
 
 	I'm an AWS developer as well, writing automated bash scripts, and doing other Linux development. I'm experienced in Agile methodologies.<br><br>
 
