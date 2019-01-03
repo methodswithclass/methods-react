@@ -20,7 +20,8 @@ var getEnv = function () {
 var refreshPages = [
 	"home",
 	"about",
-	"contact"
+	"contact",
+	"settings"
 ]
 
 
@@ -35,7 +36,7 @@ var subPages = [
 const errorHandler  = function () {
 
 	return function (err, req, res, next) {
-	  	
+
 		console.log("error handller");
 
 		if (err || res.statusCode >= 500) {
@@ -52,13 +53,13 @@ const errorHandler  = function () {
 
 
 const forceSSL = function() {
-	
+
 	return function (req, res, next) {
-		
+
 		if (req.headers['x-forwarded-proto'] !== 'https') {
 			return res.redirect(['https://', req.get('Host'), req.url].join(''));
 		}
-		
+
 		next();
 	}
 }
@@ -147,7 +148,7 @@ var refreshAllBut = function () {
 // 					file:file,
 // 					outFile:outputFile
 // 					// sourceMap:sourceMap
-// 				}, (err, result) => { 
+// 				}, (err, result) => {
 
 // 					if (err) {
 // 						console.log("\nError while compiling Sass on server:\n\n", err);

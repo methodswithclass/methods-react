@@ -170,7 +170,7 @@ var getElem = function () {
 
 				<Navbar></Navbar>
 
-				<div className="relative width height-400 black-back">
+				<div className="relative width height-200 black-back">
 
 					<div className="absolute width80 height60 center">
 

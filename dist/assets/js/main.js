@@ -48674,22 +48674,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
-/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/utility.service */ "./app/services/utility.service.js");
-/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/state.service */ "./app/services/state.service.js");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
-/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _navbtn_Settingsbtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbtn/Settingsbtn */ "./app/components/navbtn/Settingsbtn.js");
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
+
+var settings = true;
 
 var getState = function () {
-  return _services_state_service__WEBPACK_IMPORTED_MODULE_3__["getName"]();
+  return _services_state_service__WEBPACK_IMPORTED_MODULE_4__["getName"]();
 };
 
 var getBack = function () {
-  return _services_state_service__WEBPACK_IMPORTED_MODULE_3__["getBack"]();
+  return _services_state_service__WEBPACK_IMPORTED_MODULE_4__["getPreviousName"]();
 };
 
 var getBackButton = function () {
@@ -48704,11 +48707,17 @@ var getBackButton = function () {
   }
 };
 
+var getSettings = function () {
+  if (settings) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbtn_Settingsbtn__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+  }
+};
+
 class Navbar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
     var font;
 
-    if (_services_utility_service__WEBPACK_IMPORTED_MODULE_2__["checkMobile"]()) {
+    if (_services_utility_service__WEBPACK_IMPORTED_MODULE_3__["checkMobile"]()) {
       font = "font-40";
     } else {
       font = "font-20";
@@ -48719,13 +48728,7 @@ class Navbar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       id: "navbar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width80 height60 center " + font
-    }, getBackButton(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width-100 height font-40 margin-h-20 pointer right0"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute center"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      class: "fas fa-cogs"
-    })))));
+    }, getBackButton(), getSettings()));
   }
 
 }
@@ -48799,6 +48802,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _uirouter_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @uirouter/react */ "../node_modules/@uirouter/react/lib-esm/index.js");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
 /* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/state.service */ "./app/services/state.service.js");
+
 
 
 
@@ -48810,7 +48815,8 @@ class Navbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISref"], {
       to: this.props.state
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "absolute width height rounded10 pointer " + this.props.class
+      className: "absolute width height rounded10 pointer " + this.props.class,
+      onClick: _services_state_service__WEBPACK_IMPORTED_MODULE_3__["changePreviousIndex"]
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute center"
     }, this.props.name))));
@@ -48819,6 +48825,45 @@ class Navbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Navbtn);
+
+/***/ }),
+
+/***/ "./app/components/navbtn/Settingsbtn.js":
+/*!**********************************************!*\
+  !*** ./app/components/navbtn/Settingsbtn.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _uirouter_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @uirouter/react */ "../node_modules/@uirouter/react/lib-esm/index.js");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+class Settingsbtn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISrefActive"], {
+      class: "active"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_1__["UISref"], {
+      to: "settings"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute width-100 height font-40 margin-h-20 pointer right0"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "absolute center"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-cogs"
+    })))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Settingsbtn);
 
 /***/ }),
 
@@ -50278,7 +50323,7 @@ var events = _methodswithclass_shared__WEBPACK_IMPORTED_MODULE_0__["events_servi
 /*!***************************************!*\
   !*** ./app/services/state.service.js ***!
   \***************************************/
-/*! exports provided: states, configRouter, plugins, getName, getBack, getTitle */
+/*! exports provided: states, configRouter, plugins, getName, getBack, changePreviousIndex, getPreviousName, getTitle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50288,6 +50333,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "plugins", function() { return plugins; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getName", function() { return getName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBack", function() { return getBack; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changePreviousIndex", function() { return changePreviousIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPreviousName", function() { return getPreviousName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTitle", function() { return getTitle; });
 /* harmony import */ var _uirouter_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @uirouter/react */ "../node_modules/@uirouter/react/lib-esm/index.js");
 /* harmony import */ var _states_home_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../states/home/Home */ "./app/states/home/Home.js");
@@ -50297,6 +50344,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _states_apps_Apps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../states/apps/Apps */ "./app/states/apps/Apps.js");
 /* harmony import */ var _states_hire_Hire__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../states/hire/Hire */ "./app/states/hire/Hire.js");
 /* harmony import */ var _states_people_chris_Chris__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../states/people/chris/Chris */ "./app/states/people/chris/Chris.js");
+/* harmony import */ var _states_settings_Settings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../states/settings/Settings */ "./app/states/settings/Settings.js");
 
 
 
@@ -50305,10 +50353,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var statename;
+
+var statename = "";
+var history = [];
+var previousIndex = 1;
+var pressedBack = false;
+
+function $history($name) {
+  if ($name == "home") {
+    history = ["home"];
+    previousIndex = 1;
+  } else if ($name != "settings" && !pressedBack) {
+    history.splice(0, 0, $name);
+  }
+
+  pressedBack = false;
+}
 
 function setStateName($name) {
+  // previousIndex++;
   statename = $name;
+  $history($name);
 }
 
 var back = [{
@@ -50339,6 +50404,10 @@ var back = [{
   id: "hire",
   state: "hire",
   back: "what"
+}, {
+  id: "settings",
+  state: "settings",
+  back: "home"
 }];
 var states = [{
   name: 'home',
@@ -50417,6 +50486,17 @@ var states = [{
       setStateName("chris");
     }
   }]
+}, {
+  name: 'settings',
+  url: '/settings',
+  component: _states_settings_Settings__WEBPACK_IMPORTED_MODULE_8__["default"],
+  resolve: [{
+    token: 'settings',
+    deps: ['$transition$'],
+    resolveFn: trans => {
+      setStateName("settings");
+    }
+  }]
 }];
 const configRouter = $router => {
   console.log("$router", $router);
@@ -50442,6 +50522,30 @@ function getBack() {
   } else {
     return "home";
   }
+}
+var changePreviousIndex = function () {
+  if (getName() != "settings") {
+    previousIndex++;
+  }
+
+  pressedBack = true;
+};
+
+var getPreviousIndex = function () {
+  var previousPage = 1;
+
+  if (getName() == "settings") {
+    console.log("is settings \n\n\n\n\n\n\n\n");
+    return 0;
+  } else {
+    previousPage = previousIndex;
+    console.log("previous", previousPage);
+    return previousPage;
+  }
+};
+
+function getPreviousName() {
+  return history[getPreviousIndex()];
 }
 function getTitle() {
   var name = getName(); // console.log("get name", state, name);
@@ -51076,6 +51180,32 @@ class Chris extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 /***/ }),
 
+/***/ "./app/states/settings/Settings.js":
+/*!*****************************************!*\
+  !*** ./app/states/settings/Settings.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _views_settings_view_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../views/settings.view.js */ "./app/views/settings.view.js");
+
+
+
+class Settings extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return _views_settings_view_js__WEBPACK_IMPORTED_MODULE_1__["Settings"]();
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Settings);
+
+/***/ }),
+
 /***/ "./app/states/what/What.css":
 /*!**********************************!*\
   !*** ./app/states/what/What.css ***!
@@ -51180,7 +51310,7 @@ var getElem = function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-400 black-back"
+    className: "relative width height-200 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     name: "top",
     scroll: "body",
@@ -51282,7 +51412,7 @@ var getElem = function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-400 black-back"
+    className: "relative width height-200 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     name: "top",
     scroll: "body",
@@ -51435,7 +51565,7 @@ var getElem = function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-400 black-back"
+    className: "relative width height-200 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width80 height60 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51506,7 +51636,7 @@ var getElem = function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height scrollY cutoffX scroll-vertical-dark-narrow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-400 black-back"
+    className: "relative width height-200 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width80 height60 center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51600,7 +51730,7 @@ var getElem = function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-400 black-back"
+    className: "relative width height-200 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51729,6 +51859,96 @@ var Home = function () {
 
 /***/ }),
 
+/***/ "./app/views/settings.view.js":
+/*!************************************!*\
+  !*** ./app/views/settings.view.js ***!
+  \************************************/
+/*! exports provided: Settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Settings", function() { return Settings; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_navbtn_Navbtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbtn/Navbtn */ "./app/components/navbtn/Navbtn.js");
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./app/components/navbar/Navbar.js");
+/* harmony import */ var _components_navbtn_Iconbtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/navbtn/Iconbtn */ "./app/components/navbtn/Iconbtn.js");
+/* harmony import */ var _components_block_Block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/block/Block */ "./app/components/block/Block.js");
+/* harmony import */ var _components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/footer/Footer */ "./app/components/footer/Footer.js");
+/* harmony import */ var _components_parallax_Parallax__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/parallax/Parallax */ "./app/components/parallax/Parallax.js");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/css/classes.css */ "./assets/css/classes.css");
+/* harmony import */ var _assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_css_classes_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_utility_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/utility.service */ "./app/services/utility.service.js");
+/* harmony import */ var _services_state_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/state.service */ "./app/services/state.service.js");
+/* harmony import */ var _services_api_ws_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/api.ws.service */ "./app/services/api.ws.service.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/data.service */ "./app/services/data.service.js");
+
+
+
+
+
+
+ // import '../states/home/settings.css';
+
+
+
+
+
+
+
+var getElem = function () {
+  console.log("state name", _services_state_service__WEBPACK_IMPORTED_MODULE_9__["getName"]());
+  console.log("check mobile home", _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]());
+
+  if (_services_utility_service__WEBPACK_IMPORTED_MODULE_8__["checkMobile"]()) {// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+    // name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
+    // <div className="relative width height-50 white">
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="about" state="about"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="what" state="what"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="contact" state="contact"></Navbtn>
+    // 	</div>
+    // 	<div className="relative width-200 height margin-v-20">
+    // 		<Navbtn name="chris" state="chris"></Navbtn>
+    // 	</div>
+    // </div>
+  } else {}
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-200 black-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width height",
+    id: "innerhome"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute width80 height40 center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute top0 right0 width white text-right font-70"
+  }, _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["getTitle2"]()))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width height-1000 green4-back"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "absolute center font-50"
+  }, "Settings Page"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative width"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
+};
+
+var Settings = function () {
+  return getElem();
+};
+
+/***/ }),
+
 /***/ "./app/views/what.view.js":
 /*!********************************!*\
   !*** ./app/views/what.view.js ***!
@@ -51782,7 +52002,7 @@ var getElem = function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute width height scrollY cutoffX scroll-vertical-dark-narrow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height-400 black-back"
+    className: "relative width height-200 black-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     name: "top",
     scroll: "body",

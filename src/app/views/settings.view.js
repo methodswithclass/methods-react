@@ -13,7 +13,7 @@ import Block from "../components/block/Block";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
-import '../states/what/What.css';
+// import '../states/home/settings.css';
 
 
 import '../../assets/css/classes.css';
@@ -27,12 +27,11 @@ import * as data from "../services/data.service";
 
 
 
-
 var getElem = function () {
 
 
 	console.log("state name", state.getName());
-	console.log("check mobile", u.checkMobile());
+	console.log("check mobile home", u.checkMobile());
 
 
 
@@ -42,9 +41,26 @@ var getElem = function () {
 
 		// <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
 
-		// <div className="absolute width-300 height-50">
-		// 							<Navbtn class="white-back black font-30 border raised-white" name="back" state="about"></Navbtn>
-		// 						</div>
+		// name="top" scroll="body" top="true" inner="innerhome" adjustinner="false"
+
+
+		// <div className="relative width height-50 white">
+								// 	<div className="relative width-200 height margin-v-20">
+								// 		<Navbtn name="about" state="about"></Navbtn>
+								// 	</div>
+
+								// 	<div className="relative width-200 height margin-v-20">
+								// 		<Navbtn name="what" state="what"></Navbtn>
+								// 	</div>
+
+								// 	<div className="relative width-200 height margin-v-20">
+								// 		<Navbtn name="contact" state="contact"></Navbtn>
+								// 	</div>
+
+								// 	<div className="relative width-200 height margin-v-20">
+								// 		<Navbtn name="chris" state="chris"></Navbtn>
+								// 	</div>
+								// </div>
 	}
 	else {
 
@@ -57,19 +73,17 @@ var getElem = function () {
 	return (
 	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
 
+
 				<Navbar></Navbar>
 
 	    		<div className="relative width height-200 black-back">
-					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
+					<div className="absolute width height">
 						<div className="absolute width height" id="innerhome">
 							<div className="absolute width80 height40 center">
 
 								<div className="absolute top0 right0 width white text-right font-70">
 									{u.getTitle2()}
 								</div>
-
-
-
 
 							</div>
 						</div>
@@ -81,19 +95,11 @@ var getElem = function () {
 
 			    <div className="relative width">
 
-			        <div className="relative width height-1000 green-back">
+			        <div className="relative width height-1000 green4-back">
 
-			        	<div className="relative width60 height-400 center">
-			        		<div className="absolute width50 height">
+			        	<div className="absolute center font-50">
 
-			        			<Iconbtn name="Apps" state="apps" icon="fa-tablet"></Iconbtn>
-			        		</div>
-
-
-				        	<div className="absolute width50 height right0">
-
-				        		<Iconbtn name="Hire" state="hire" icon="fa-tools"></Iconbtn>
-				        	</div>
+			        		Settings Page
 
 				        </div>
 
@@ -115,7 +121,7 @@ var getElem = function () {
 }
 
 
-export var What = function () {
+export var Settings = function () {
 
 	return getElem();
 }

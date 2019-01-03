@@ -10,13 +10,39 @@ import What from "../states/what/What";
 import Apps from "../states/apps/Apps";
 import Hire from "../states/hire/Hire";
 import Chris from "../states/people/chris/Chris";
+import Settings from "../states/settings/Settings";
 
-var statename;
+var statename = "";
+var history = [];
+var previousIndex = 1;
+var pressedBack = false;
+
+function $history ($name) {
+
+
+	if ($name == "home") {
+		history = ["home"];
+		previousIndex = 1;
+	}
+	else if ($name != "settings" && !pressedBack) {
+		history.splice(0, 0, $name);
+	}
+
+	pressedBack = false;
+
+}
 
 
 function setStateName ($name) {
 
+	// previousIndex++;
+
 	statename = $name;
+
+	$history($name);
+
+
+
 }
 
 
@@ -55,6 +81,11 @@ var back = [
 	id:"hire",
 	state:"hire",
 	back:"what"
+},
+{
+	id:"settings",
+	state:"settings",
+	back:"home"
 }
 ]
 
@@ -143,6 +174,18 @@ export var states = [
 	  setStateName("chris");
 	}
 	}]
+},
+{
+	name: 'settings',
+	url: '/settings',
+	component: Settings,
+	resolve:[{
+	token: 'settings',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("settings");
+	}
+	}]
 }
 ]
 
@@ -193,6 +236,41 @@ export function getBack () {
 	else {
 		return "home";
 	}
+}
+
+
+export var changePreviousIndex = function () {
+
+	if (getName() != "settings") {
+		previousIndex++;
+	}
+	pressedBack = true;
+}
+
+var getPreviousIndex = function () {
+
+	var previousPage = 1;
+
+
+	if (getName() == "settings") {
+		console.log("is settings \n\n\n\n\n\n\n\n");
+		return 0;
+	}
+	else {
+
+		previousPage = previousIndex;
+
+		console.log("previous", previousPage);
+
+		return previousPage;
+	}
+
+
+}
+
+export function getPreviousName () {
+
+	return history[getPreviousIndex()];
 }
 
 

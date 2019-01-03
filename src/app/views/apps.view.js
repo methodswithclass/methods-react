@@ -77,7 +77,7 @@ var getElem = function () {
 
 				<Navbar></Navbar>
 
-	    		<div className="relative width height-400 black-back">
+	    		<div className="relative width height-200 black-back">
 					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
 						<div className="absolute width height" id="innerhome">
 							<div className="absolute width80 height40 center">
