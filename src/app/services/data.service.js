@@ -91,9 +91,9 @@ var contact = {
 	bio:`
 
 
-	I am a software developer with my main focus for the moment on fullstack software for the web.<br><br>
+	I am the developer for Methods with Class, LLC. We are a small firm dedicated to helping people and businesses with websites and home installations. <br><br>
 
-	What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br>
+	My main focus in development, for the moment, is on fullstack software for the web. What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br>
 
 	I'm an AWS developer as well, writing automated bash scripts, and doing other Linux development. I'm experienced in Agile methodologies.<br><br>
 
