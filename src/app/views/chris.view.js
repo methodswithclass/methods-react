@@ -8,6 +8,7 @@ import React from 'react';
 
 import Navbtn from "../components/navbtn/Navbtn";
 import Navbar from "../components/navbar/Navbar";
+import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Resume from "../components/resume/Resume";
 
@@ -24,6 +25,11 @@ import * as api from "../services/api.ws.service";
 import * as data from "../services/data.service";
 
 
+
+var hidebutton = function () {
+
+	u.hideMenuButton("chrisbody");
+}
 
 
 var email = function () {
@@ -165,46 +171,26 @@ var getElem = function () {
 
 	return (
 
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="chrisbody">
 
-			<div className="relative width height scrollY cutoffX scroll-vertical-dark-narrow">
+		    <Navbar></Navbar>
 
-				<Navbar></Navbar>
+			<Header></Header>
 
-				<div className="relative width height-200 black-back">
+			<div className="relative width teal-back">
 
-					<div className="absolute width80 height60 center">
+				<div className="relative width80 hcenter">
 
-						<div className="absolute width white right0 text-right font-70">
-							{u.getTitle2()}
-						</div>
-
-
-
-					</div>
+					{getResume()}
 
 				</div>
-
-				<div className="relative width teal-back">
-
-					<div className="relative width80 hcenter">
-
-						{getResume()}
-
-					</div>
-
-				</div>
-
-				 <div className="relative width">
-
-			    	<Footer></Footer>
-
-			    </div>
 
 			</div>
 
 
+		</div>
 
-	    );
+	);
 }
 
 

@@ -5,7 +5,7 @@ var merge = require("merge-stream");
 var imagemin = require('gulp-imagemin');
 
 
-var watch = true;
+var watch = false;
 
 var reporters = [
 {

@@ -10,6 +10,7 @@ import Navbtn from "../components/navbtn/Navbtn";
 import Navbar from "../components/navbar/Navbar";
 import Iconbtn from "../components/navbtn/Iconbtn";
 import Block from "../components/block/Block";
+import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
@@ -25,6 +26,11 @@ import * as state from "../services/state.service";
 import * as api from "../services/api.ws.service";
 import * as data from "../services/data.service";
 
+
+var hidebutton = function () {
+
+	u.hideMenuButton("homebody");
+}
 
 
 var getElem = function () {
@@ -71,66 +77,39 @@ var getElem = function () {
 
 
 	return (
-	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
 
 
-				<Navbar></Navbar>
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="homebody">
 
-	    		<div className="relative width height-600 black-back">
-					<div className="absolute width height">
-						<div className="absolute width height" id="innerhome">
-							<div className="absolute width80 height40 center">
+		    <Navbar></Navbar>
 
-								<div className="absolute top0 right0 width white text-right font-70">
-									{u.getTitle1()}
-								</div>
+			<Header></Header>
 
+		    <div className="relative width">
 
-								<div className="absolute width white bottom0 text-right">
-									we make your ideas and your home come to life with class
-								</div>
+		        <div className="relative width height-1000 green7-back">
 
-							</div>
-						</div>
-					</div>
+		        	<div className="relative width60 height-400 center">
+		        		<div className="absolute width50 height">
 
-				</div>
+		        			<Iconbtn name="Contact us" state="contact" icon="fa-user-check"></Iconbtn>
+		        		</div>
 
 
+			        	<div className="absolute width50 height right0">
 
-			    <div className="relative width">
-
-			        <div className="relative width height-1000 green7-back">
-
-			        	<div className="relative width60 height-400 center">
-			        		<div className="absolute width50 height">
-
-			        			<Iconbtn name="Contact us" state="contact" icon="fa-user-check"></Iconbtn>
-			        		</div>
-
-
-				        	<div className="absolute width50 height right0">
-
-				        		<Iconbtn name="About us" state="about" icon="fa-laptop"></Iconbtn>
-				        	</div>
-
-				        </div>
+			        		<Iconbtn name="About us" state="about" icon="fa-laptop"></Iconbtn>
+			        	</div>
 
 			        </div>
 
-			    </div>
+		        </div>
 
+		    </div>
 
+		</div>
 
-			    <div className="relative width">
-
-			    	<Footer></Footer>
-
-			    </div>
-
-			</div>
-
-	    );
+	);
 }
 
 

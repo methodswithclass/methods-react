@@ -2,14 +2,14 @@
   width: 100%; }
 
 /************************************************************************************
-  
+
 		classes-2.scss
 
 		SCSS library
 
-		a SCSS generated semantic css library that provides classes for each style point. 
-		this allows for an element to carry whatever classes it needs 
-		and reduces the burden on extensive singleton classes 
+		a SCSS generated semantic css library that provides classes for each style point.
+		this allows for an element to carry whatever classes it needs
+		and reduces the burden on extensive singleton classes
 		or heavy-duty css document engineering.
 
 		Methods with Class, LLC, 2015
@@ -2945,6 +2945,9 @@ background color
 .scrollY {
   overflow-y: scroll; }
 
+.hidescroll::-webkit-scrollbar {
+  display: none; }
+
 /* wide dark vertical */
 .scroll-style-1::-webkit-scrollbar-track {
   background-color: white; }
@@ -3049,9 +3052,9 @@ background color
   height: 6px; }
 
 /*______________________________________________________
-			
+
 				vertical, dark, wide
-	
+
 			*/
 .scroll-vertical-dark-wide::-webkit-scrollbar-track {
   background-color: #EEEEEE; }
@@ -3069,9 +3072,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				vertical, dark, narrow
-	
+
 			*/
 .scroll-vertical-dark-narrow::-webkit-scrollbar-track {
   background-color: #EEEEEE; }
@@ -3089,9 +3092,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				vertical, light, wide
-	
+
 			*/
 .scroll-vertical-light-wide::-webkit-scrollbar-track {
   background-color: #333333; }
@@ -3109,9 +3112,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				vertical, light, narrow
-	
+
 			*/
 .scroll-vertical-light-narrow::-webkit-scrollbar-track {
   background-color: #333333; }
@@ -3129,9 +3132,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				horizontal, dark, wide
-	
+
 			*/
 .scroll-horizontal-dark-wide::-webkit-scrollbar-track {
   background-color: #EEEEEE; }
@@ -3149,9 +3152,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				horizontal, dark, narrow
-	
+
 			*/
 .scroll-horizontal-dark-narrow::-webkit-scrollbar-track {
   background-color: #EEEEEE; }
@@ -3169,9 +3172,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				horizontal, light, wide
-	
+
 			*/
 .scroll-horizontal-light-wide::-webkit-scrollbar-track {
   background-color: #333333; }
@@ -3189,9 +3192,9 @@ background color
 
 /*_______________________________________________________*/
 /*______________________________________________________
-			
+
 				horizontal, light, narrow
-	
+
 			*/
 .scroll-horizontal-light-narrow::-webkit-scrollbar-track {
   background-color: #333333; }

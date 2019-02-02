@@ -53,11 +53,11 @@ app.use("/api", apiRoutes);
 // app.use("/trash", trashRoutes);
 // app.use("/recognize", recognizeRoutes);
 
-// if  (process.env.NODE_ENV != "production") {
-// 	app.use(require('connect-livereload')({
-// 		port: PORTS.livereload
-// 	}));
-// }
+if  (process.env.NODE_ENV != "production") {
+	app.use(require('connect-livereload')({
+		port: PORTS.livereload
+	}));
+}
 
 
 app.use("/url", function (req, res, next) {

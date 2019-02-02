@@ -9,6 +9,7 @@ import React from 'react';
 import Navbtn from "../components/navbtn/Navbtn";
 import Navbar from "../components/navbar/Navbar";
 import Iconbtn from "../components/navbtn/Iconbtn";
+import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
@@ -23,6 +24,11 @@ import * as u from "../services/utility.service";
 import * as state from "../services/state.service";
 import * as api from "../services/api.ws.service";
 
+
+var hidebutton = function () {
+
+	u.hideMenuButton("aboutbody");
+}
 
 var getElem = function () {
 
@@ -46,50 +52,25 @@ var getElem = function () {
 
 
 	return (
-	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
 
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="aboutbody">
 
-				<Navbar></Navbar>
+		    <Navbar></Navbar>
 
-	    		<div className="relative width height-200 black-back">
-					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-						<div className="absolute width height" id="innerhome">
-							<div className="absolute width80 height40 center">
+			<Header></Header>
 
-								<div className="absolute top0 right0 width white text-right font-70">
-									{u.getTitle2()}
-								</div>
+		    <div className="relative width height-1000 blue-back">
 
-
-
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-
-			    <div className="relative width height-1000 blue-back">
-
-			    	<div className="absolute width60 height-400 center">
-			    		<div className="absolute width50 height center">
-				    		<Iconbtn name="What we do" state="what" icon="fa-laptop"></Iconbtn>
-				    	</div>
-				    </div>
+		    	<div className="absolute width60 height-400 center">
+		    		<div className="absolute width50 height center">
+			    		<Iconbtn name="What we do" state="what" icon="fa-laptop"></Iconbtn>
+			    	</div>
 			    </div>
+		    </div>
 
+	    </div>
 
-			     <div className="relative width">
-
-			    	<Footer></Footer>
-
-			    </div>
-
-			</div>
-
-	    );
+	);
 }
 
 

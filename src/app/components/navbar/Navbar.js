@@ -6,11 +6,14 @@ import Settingsbtn from "../navbtn/Settingsbtn";
 
 import * as u from "../../services/utility.service";
 import * as h from "../../services/history.service";
+import * as state from "../../services/state.service";
+
 
 import '../../../assets/css/classes.css';
 
 
 var settings = false;
+var menu = true;
 
 var getState = function () {
 
@@ -19,7 +22,12 @@ var getState = function () {
 
 var getBack = function () {
 
-	return h.getPreviousName();
+	return h.getPrevious(h.getName());
+}
+
+var goHome = function () {
+
+	state.goto("home");
 }
 
 var getBackButton = function () {
@@ -29,7 +37,7 @@ var getBackButton = function () {
 
 		return (
 
-			<div className="absolute width-300 height80 vcenter margin-h-20">
+			<div className="absolute width-200 height80 vcenter left-200 margin-h-20 pointer">
 				<Navbtn class="black-back white border raised" name="back" state={getBack()}></Navbtn>
 			</div>
 		)
@@ -37,16 +45,33 @@ var getBackButton = function () {
 }
 
 
+var getIcon = function () {
+
+	return (
+
+		<div className="absolute width-100 height vcenter margin-h-20 right0 pointer" onClick={goHome}>
+			<img className="absolute height width-auto center" src={getImage()} />
+		</div>
+
+	)
+}
+
+
 var getSettings = function () {
+
+	// {getBackButton()}
 
 	if (settings) {
 
 		return (
 
-			<div><Settingsbtn></Settingsbtn></div>
+			<div className="absolute width-100 height80 vcenter margin-h-20 right-400 pointer"><Settingsbtn></Settingsbtn></div>
 		)
 	}
 }
+
+
+
 
 
 var getImage = function () {
@@ -81,13 +106,14 @@ class Navbar extends Component {
 		<div className={"relative width white-back " + height} id="navbar">
 
 			<div className={"absolute width90 height60 center " + font}>
+
 				{getBackButton()}
 
 				{getSettings()}
 
-				<div className="absolute width-100 height margin-h-20 right0">
-					<img className="absolute height width-auto" src={getImage()} />
-				</div>
+				{getIcon()}
+
+
 			</div>
 
 		</div>

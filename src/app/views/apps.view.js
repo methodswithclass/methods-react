@@ -9,6 +9,7 @@ import React from 'react';
 import Navbtn from "../components/navbtn/Navbtn";
 import Navbar from "../components/navbar/Navbar";
 import Block from "../components/block/Block";
+import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
@@ -24,6 +25,11 @@ import * as state from "../services/state.service";
 import * as api from "../services/api.ws.service";
 import * as data from "../services/data.service";
 
+
+var hidebutton = function () {
+
+	u.hideMenuButton("appsbody");
+}
 
 var getBlocks = function () {
 
@@ -72,46 +78,20 @@ var getElem = function () {
 
 
 	return (
-	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
 
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="appsbody">
 
-				<Navbar></Navbar>
+		    <Navbar></Navbar>
 
-	    		<div className="relative width height-200 black-back">
-					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-						<div className="absolute width height" id="innerhome">
-							<div className="absolute width80 height40 center">
+			<Header></Header>
 
-								<div className="absolute top0 right0 width white text-right font-70">
-									{u.getTitle2()}
-								</div>
+		    <div className="relative width">
+		        {getBlocks()}
+		    </div>
 
+		</div>
 
-
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-
-			    <div className="relative width">
-			        {getBlocks()}
-			    </div>
-
-
-
-			    <div className="relative width">
-
-			    	<Footer></Footer>
-
-			    </div>
-
-			</div>
-
-	    );
+	);
 }
 
 

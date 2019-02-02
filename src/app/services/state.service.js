@@ -11,14 +11,21 @@ import Apps from "../states/apps/Apps";
 import Hire from "../states/hire/Hire";
 import Chris from "../states/people/chris/Chris";
 import Settings from "../states/settings/Settings";
-
+import Login from "../states/login/Login";
 
 
 import * as h from "./history.service";
+import * as u from "./utility.service";
 
+var $ = u.jquery();
+var $router;
 
 var statename = "";
 
+var $roots = [
+	"home",
+	"login"
+]
 
 
 function setStateName ($name) {
@@ -29,6 +36,18 @@ function setStateName ($name) {
 
 	h.$history($name);
 
+	$("#menubutton").css({display:"block"});
+
+	// var found = $roots.find((p) => {
+
+	// 	return p == $name;
+	// })
+
+
+	// if (!found) {
+
+	// 	h.toggle(false);
+	// }
 }
 
 
@@ -172,10 +191,37 @@ export var states = [
 	  setStateName("settings");
 	}
 	}]
+},
+{
+	name: 'login',
+	url: '/settings/login',
+	component: Login,
+	resolve:[{
+	token: 'login',
+	deps: ['$transition$'],
+	resolveFn: (trans) => {
+	  setStateName("login");
+	}
+	}]
 }
 ]
 
-export const configRouter = ($router) => {
+
+var setupHistory = function () {
+
+
+	h.setup({
+		roots:$roots,
+		index:0,
+		states:states
+	});
+}
+
+setupHistory();
+
+export const configRouter = ($$router) => {
+
+	$router = $$router;
 
 	console.log("$router", $router);
 
@@ -230,5 +276,20 @@ export function getTitle () {
 	var capital = name.substr(0,1);
 
 	return capital.toUpperCase() + name.slice(1);
+}
+
+export function goto (state, params) {
+
+	console.log("goto state", state, "with params", params);
+
+	u.closeMenu("body");
+
+	if (params) {
+		$router.stateService.go(state, params);
+	}
+	else {
+		$router.stateService.go(state);
+	}
+
 }
 

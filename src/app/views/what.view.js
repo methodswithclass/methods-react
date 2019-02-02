@@ -10,6 +10,7 @@ import Navbtn from "../components/navbtn/Navbtn";
 import Navbar from "../components/navbar/Navbar";
 import Iconbtn from "../components/navbtn/Iconbtn";
 import Block from "../components/block/Block";
+import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
@@ -25,7 +26,10 @@ import * as state from "../services/state.service";
 import * as api from "../services/api.ws.service";
 import * as data from "../services/data.service";
 
+var hidebutton = function () {
 
+	u.hideMenuButton("whatbody");
+}
 
 
 var getElem = function () {
@@ -55,63 +59,41 @@ var getElem = function () {
 
 
 	return (
-	    	<div className="absolute width height scrollY cutoffX scroll-vertical-dark-narrow">
-
-				<Navbar></Navbar>
-
-	    		<div className="relative width height-200 black-back">
-					<div name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-						<div className="absolute width height" id="innerhome">
-							<div className="absolute width80 height40 center">
-
-								<div className="absolute top0 right0 width white text-right font-70">
-									{u.getTitle2()}
-								</div>
 
 
 
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="whatbody">
 
-							</div>
-						</div>
-					</div>
+		    <Navbar></Navbar>
 
-				</div>
+			<Header></Header>
 
+		    <div className="relative width">
 
+		        <div className="relative width height-1000 green-back">
 
-			    <div className="relative width">
+		        	<div className="relative width60 height-400 center">
+		        		<div className="absolute width50 height">
 
-			        <div className="relative width height-1000 green-back">
-
-			        	<div className="relative width60 height-400 center">
-			        		<div className="absolute width50 height">
-
-			        			<Iconbtn name="Apps" state="apps" icon="fa-tablet"></Iconbtn>
-			        		</div>
+		        			<Iconbtn name="Apps" state="apps" icon="fa-tablet"></Iconbtn>
+		        		</div>
 
 
-				        	<div className="absolute width50 height right0">
+			        	<div className="absolute width50 height right0">
 
-				        		<Iconbtn name="Hire" state="hire" icon="fa-tools"></Iconbtn>
-				        	</div>
-
-				        </div>
+			        		<Iconbtn name="Hire" state="hire" icon="fa-tools"></Iconbtn>
+			        	</div>
 
 			        </div>
 
-			    </div>
+		        </div>
+
+		    </div>
 
 
+		</div>
 
-			    <div className="relative width">
-
-			    	<Footer></Footer>
-
-			    </div>
-
-			</div>
-
-	    );
+	);
 }
 
 

@@ -29,7 +29,7 @@ import * as data from "../services/data.service";
 
 var hidebutton = function () {
 
-	u.hideMenuButton("settingsbody");
+	u.hideMenuButton("loginbody");
 }
 
 
@@ -67,13 +67,6 @@ var getElem = function () {
 								// 		<Navbtn name="chris" state="chris"></Navbtn>
 								// 	</div>
 								// </div>
-
-
-		// <div className="absolute width60 height-400 center">
-		// 	    	<div className="absolute width50 height center">
-		// 	    		<Iconbtn name="Login" state="login" icon="fa-sign-in-alt"></Iconbtn>
-		// 	    	</div>
-		// 	    </div>
 	}
 	else {
 
@@ -86,15 +79,23 @@ var getElem = function () {
 	return (
 
 
-	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="settingsbody">
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="loginbody">
 
 		    <Navbar></Navbar>
 
 			<Header></Header>
 
-		    <div className="relative width height-1000 green4-back">
+		    <div className="relative width">
 
+		        <div className="relative width height-1000 blue3-back">
 
+		        	<div className="absolute center font-50">
+
+		        		Login Page
+
+			        </div>
+
+		        </div>
 
 		    </div>
 
@@ -105,7 +106,7 @@ var getElem = function () {
 }
 
 
-export var Settings = function () {
+export var Login = function () {
 
 	return getElem();
 }

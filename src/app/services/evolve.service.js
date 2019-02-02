@@ -23,6 +23,10 @@ var stepdata;
 var evolveCompleteCount = 1;
 var completed = true;
 
+
+
+
+
 var timeDivisor = {
     stepdata:2,
     ui_updater:10,
@@ -108,7 +112,7 @@ var getBest = function (complete) {
 
 
 	api.getBest(function (res) {
-        
+
         sendData({
             evdata:{
                 index:0,
@@ -127,7 +131,7 @@ var getBest = function (complete) {
 var getEvdata = function (count) {
 
     api.getBest(function (res) {
-        
+
         sendData({
             evdata:{
                 index:$stepdata.gen,
@@ -203,7 +207,7 @@ var updateProgressBar = function ($name, percent, generation, total) {
 
 
 export var stepprogress = function ($name) {
-    
+
     var input = $input.getInput(false);
 
     var genT = input.gens || 1;
@@ -280,17 +284,17 @@ export var evolving = function (_evolve) {
     // console.log("spinElem", spinElem);
 
     if (_evolve) {
-        
+
         running(_evolve);
 
         shared.g.waitForElem({elems:spinElem}, function (options) {
-        
+
             // console.log("spinElem", options.elems);
             if (spinning) $(options.elems).addClass("spinning");
         });
     }
     else {
-     
+
         shared.g.waitForElem({elems:spinElem}, function (options) {
 
             // console.log("spinElem", options.elems);
@@ -330,14 +334,14 @@ var refreshSimulator = function (clear) {
     simulator.setup(clear, function () {
 
         console.log("refresh simulator");
-        simulator.refresh(); 
+        simulator.refresh();
     });
 }
 
 
 export var completeEvolve = function () {
 
-    
+
 
 	// running(false);
 
@@ -352,12 +356,12 @@ export var completeEvolve = function () {
     // u.toggle("show", "nav", {delay:params.delay, fade:params.fade});
     u.toggle("hide", "breakfeedback", {delay:params.delay*5});
     u.toggle("hide", "evolve", {delay:params.delay*3, fade:params.fade*3});
-    
+
     // u.toggle("enable", "refresh", {delay:params.delay, fade:params.fade});
     // u.toggle("enable", "play", {delay:params.delay, fade:params.fade});
 
     if (n === "feedback") {
-        
+
         // u.toggle("disable", "stop", {delay:params.delay, fade:params.fade});
         // u.toggle("enable", "play", {delay:params.delay, fade:params.fade});
         // u.toggle("enable", "refresh", {delay:params.delay, fade:params.fade});
@@ -395,7 +399,7 @@ var isRunning = function () {
     	if (!res.data.running) running(false);
 
 		setTimeout(function () {
-    	
+
             // console.log("update", isEvolving());
 
         	if (isEvolving()) {
@@ -493,7 +497,7 @@ export var run = function () {
 	}
 	else {
 
-        
+
         // u.toggle("hide", "nav", {fade:params.fade});
         u.toggle("hide", "run", {fade:params.fade});
         // u.toggle("disable", "refresh", {fade:params.fade});
@@ -514,7 +518,7 @@ export var run = function () {
 
 
     if (n === "feedback") {
-        
+
         api.run(function (res) {
 
             runEvolveComplete();
@@ -531,8 +535,8 @@ export var run = function () {
 
         // });
     }
-    
-         
+
+
 
 }
 
@@ -543,7 +547,7 @@ export var breakRun = function () {
     console.log("hard stop");
 
     running(false);
-    
+
     u.toggle("show", "breakfeedback");
 
     // shared.events.dispatch("evolve."+n+".end");
@@ -551,10 +555,10 @@ export var breakRun = function () {
     // uncomment this line to force the gens value to change in the settings panel to the current generation when hardstop was called
     // so that to continue evolving, the gens value must be increased to the previous or desired value
 
-    // keeping this line commented out, the gens value (while it was changed on the backend to force the stop) 
+    // keeping this line commented out, the gens value (while it was changed on the backend to force the stop)
     // does not change in the settings panel, so that continuing to evolve only requires hitting the evolve button again
     // with no other action
-    
+
     // ## this line sets the gens value to the current generation
     // ## $input.getInput(false);
     // ##

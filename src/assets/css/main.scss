@@ -3,14 +3,14 @@
 }
 
 /************************************************************************************
-  
+
 		classes-2.scss
 
 		SCSS library
 
-		a SCSS generated semantic css library that provides classes for each style point. 
-		this allows for an element to carry whatever classes it needs 
-		and reduces the burden on extensive singleton classes 
+		a SCSS generated semantic css library that provides classes for each style point.
+		this allows for an element to carry whatever classes it needs
+		and reduces the burden on extensive singleton classes
 		or heavy-duty css document engineering.
 
 		Methods with Class, LLC, 2015
@@ -64,7 +64,7 @@
 	height:50%;
 	width:100%;
 	border:1px solid black;
-	
+
 }
 
 #consoleContainer {
@@ -95,11 +95,11 @@
 /* ********************************************  DISPLAY  ********************************************  */
 
 .absolute {
-	position:absolute;	
+	position:absolute;
 }
 
 .relative {
-	position:relative;	
+	position:relative;
 }
 
 .fixed {
@@ -152,12 +152,12 @@
 }
 
 .table {
-    
+
     display:table;
 }
 
 .table-cell {
-    
+
     display:table-cell;
 }
 
@@ -278,17 +278,17 @@
 }
 
 .fill {
-	
+
 	top:0;
 	left:0;
 	width:100%;
-	height:100%;		
+	height:100%;
 }
 
 .inset1 {
 
 	width:98%;
-	height:98%;	
+	height:98%;
 }
 
 .inset2 {
@@ -298,13 +298,13 @@
 }
 
 .inset5 {
-	
+
 	width:90%;
 	height:90%;
 }
 
 .inset10 {
-	
+
 	width:80%;
 	height:80%;
 }
@@ -330,11 +330,11 @@ $i: 0;
 @while $i <= 100 {
   .right#{$i} {
     right: #{$i+"%"};
-  }  
+  }
 
   $i: $i + 5;
 
-} 
+}
 
 
 $i: 0;
@@ -362,7 +362,7 @@ $i: -200;
   .right-minus#{abs($i)} {
     right: #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -375,7 +375,7 @@ $i: -500;
   .right-minus-#{abs($i)} {
     right: #{$i}px;
   }
-  $i: $i + 50; 
+  $i: $i + 50;
 }
 
 
@@ -387,7 +387,7 @@ $i: -100;
   .right-minus-#{abs($i)} {
     right: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -402,7 +402,7 @@ $i: 0;
   .left#{$i} {
     left: #{$i+"%"};
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -433,7 +433,7 @@ $i: -100;
   .left-minus#{abs($i)} {
     left: #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -444,7 +444,7 @@ $i: -200;
   .left-minus-#{abs($i)} {
     left: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -460,7 +460,7 @@ $i: 0;
   .top#{$i} {
     top: #{$i+"%"};
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -489,7 +489,7 @@ $i: -100;
   .top-minus#{abs($i)} {
     top: #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -500,7 +500,7 @@ $i: -200;
   .top-minus-#{abs($i)} {
     top: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -516,7 +516,7 @@ $i: 0;
   .bottom#{$i} {
     bottom: #{$i+"%"};
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -545,7 +545,7 @@ $i: -100;
   .bottom-minus#{abs($i)} {
     bottom: #{$i + "%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -556,7 +556,7 @@ $i: -200;
   .bottom-minus-#{abs($i)} {
     bottom: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -578,7 +578,7 @@ $i: 0;
   .margin#{$i} {
     margin: #{$i+"%"};
   }
-  $i: $i + 1; 
+  $i: $i + 1;
 }
 
 
@@ -589,7 +589,7 @@ $i: 0;
   .margin-#{$i} {
     margin: #{$i}px;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -600,7 +600,7 @@ $i: 20;
   .margin-top-#{$i} {
     margin-top: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -614,7 +614,7 @@ $i: 0;
   .margin-bottom-#{$i} {
     margin-bottom: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -626,7 +626,7 @@ $i: 100;
   .margin-bottom-#{$i} {
     margin-bottom: #{$i}px;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -643,7 +643,7 @@ $i: 10;
   .margin-right-#{$i} {
     margin-right: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -664,7 +664,7 @@ $i: 10;
   .margin-left-#{$i} {
     margin-left: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -675,7 +675,7 @@ $i: -100;
   .margin-left-minus#{abs($i)} {
     margin-left: #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -687,7 +687,7 @@ $i: 5;
   .margin-h#{$i} {
     margin:0 #{$i+"%"};
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -699,7 +699,7 @@ $i: 5;
   .margin-h-#{$i} {
     margin:0 #{$i}px;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -710,7 +710,7 @@ $i: 200;
   .margin-h-#{$i} {
     margin:0 #{$i}px;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -721,7 +721,7 @@ $i: -100;
   .margin-h-minus-#{abs($i)} {
     margin:0 #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -732,7 +732,7 @@ $i: 5;
   .margin-v#{$i} {
     margin:#{$i+"%"} 0;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -744,7 +744,7 @@ $i: 5;
   .margin-v-#{$i} {
     margin:#{$i}px 0;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -755,7 +755,7 @@ $i: 200;
   .margin-v-#{$i} {
     margin:#{$i}px 0;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -766,7 +766,7 @@ $i: -100;
   .margin-v-minus-#{abs($i)} {
     margin:#{$i+"%"} 0;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -806,7 +806,7 @@ $i: 0;
   .padding#{$i} {
     padding: #{$i+"%"};
   }
-  $i: $i + 1; 
+  $i: $i + 1;
 }
 
 
@@ -817,7 +817,7 @@ $i: 0;
   .padding-#{$i} {
     padding: #{$i}px;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -828,7 +828,7 @@ $i: 20;
   .padding-top-#{$i} {
     padding-top: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -852,7 +852,7 @@ $i: 100;
   .padding-bottom-#{$i} {
     padding-bottom: #{$i}px;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -869,7 +869,7 @@ $i: 10;
   .padding-right-#{$i} {
     padding-right: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -890,7 +890,7 @@ $i: 10;
   .padding-left-#{$i} {
     padding-left: #{$i}px;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -901,7 +901,7 @@ $i: -100;
   .padding-left-minus#{abs($i)} {
     padding-left: #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -913,7 +913,7 @@ $i: 5;
   .padding-h#{$i} {
     padding:0 #{$i+"%"};
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -925,7 +925,7 @@ $i: 5;
   .padding-h-#{$i} {
     padding:0 #{$i}px;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -936,7 +936,7 @@ $i: 200;
   .padding-h-#{$i} {
     padding:0 #{$i}px;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -947,7 +947,7 @@ $i: -100;
   .padding-h-minus-#{abs($i)} {
     padding:0 #{$i+"%"};
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -958,7 +958,7 @@ $i: 5;
   .padding-v#{$i} {
     padding:#{$i+"%"} 0;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -970,7 +970,7 @@ $i: 5;
   .padding-v-#{$i} {
     padding:#{$i}px 0;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -981,7 +981,7 @@ $i: 200;
   .padding-v-#{$i} {
     padding:#{$i}px 0;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -992,7 +992,7 @@ $i: -100;
   .padding-v-minus-#{abs($i)} {
     padding:#{$i+"%"} 0;
   }
-  $i: $i + 10; 
+  $i: $i + 10;
 }
 
 
@@ -1030,7 +1030,7 @@ $i: 5;
   .font-#{$i} {
     font-size:#{$i}px;
   }
-  $i: $i + 5; 
+  $i: $i + 5;
 }
 
 
@@ -1041,7 +1041,7 @@ $i: 200;
   .font-#{$i} {
     font-size:#{$i}px;
   }
-  $i: $i + 100; 
+  $i: $i + 100;
 }
 
 
@@ -1073,7 +1073,7 @@ $i: 0.1;
     	font-size:#{$i}rem;
   	}
 
-  	$i: $i + 0.1; 
+  	$i: $i + 0.1;
 }
 
 
@@ -1276,27 +1276,27 @@ $i: 5;
 
 
 .border {
-	border:1px solid black;	
+	border:1px solid black;
 }
 
 .border-white {
 
-	border:1px solid white;	
+	border:1px solid white;
 }
 
 .border-white-3 {
 
-	border:3px solid white;	
+	border:3px solid white;
 }
 
 .border-red {
 
-	border:1px solid red;	
+	border:1px solid red;
 }
 
 .border-blue {
 
-	border:1px solid blue;	
+	border:1px solid blue;
 }
 
 .border-green6 {
@@ -1364,7 +1364,7 @@ $i: 5;
 
 .border-bottom-white {
 
-	border-bottom:1px solid white;	
+	border-bottom:1px solid white;
 }
 
 .border-right-white {
@@ -1383,15 +1383,15 @@ $i: 5;
 
 
 .lowered {
-	box-shadow: 0 0 10px 0 #424242 inset;		
+	box-shadow: 0 0 10px 0 #424242 inset;
 }
 
 .lowered-white {
-	box-shadow: 0 0 10px 0 white inset;		
+	box-shadow: 0 0 10px 0 white inset;
 }
 
 .lowered-dark {
-	box-shadow: 0 0 30px 0 #000 inset;		
+	box-shadow: 0 0 30px 0 #000 inset;
 }
 
 .raised {
@@ -1454,7 +1454,7 @@ $i: 0;
 }
 
 .white-back {
-	background-color:white;	
+	background-color:white;
 }
 
 .black {
@@ -1463,7 +1463,7 @@ $i: 0;
 }
 
 .black-back {
-	background-color:black;	
+	background-color:black;
 }
 
 .gray {
@@ -1938,7 +1938,7 @@ background color
 
 
 .cutoff {
-	overflow:hidden;	
+	overflow:hidden;
 }
 
 .cutoffX {
@@ -1952,7 +1952,7 @@ background color
 }
 
 .scroll {
-	overflow:scroll;	
+	overflow:scroll;
 }
 
 .scrollX {
@@ -1963,6 +1963,10 @@ background color
 .scrollY {
 
 	overflow-y:scroll;
+}
+
+.hidescroll::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -2295,9 +2299,9 @@ $sizes: (
 
 
 			/*______________________________________________________
-			
+
 				#{$dirName}, #{$colorName}, #{$sizeName}
-	
+
 			*/
 
 			.scroll-#{$dirName}-#{$colorName}-#{$sizeName}::-webkit-scrollbar-track {
@@ -2319,7 +2323,7 @@ $sizes: (
 				@include thumbColor(#{$colorName});
 			}
 
-	
+
 			/*_______________________________________________________*/
 
 		}
@@ -2349,8 +2353,8 @@ $sizes: (
 /* ********************************************  CENTERING  ********************************************  */
 
 .text-center {
-    
-    text-align:center;  
+
+    text-align:center;
 }
 
 .text-right {
@@ -2379,7 +2383,7 @@ $sizes: (
 .golden {
 
 	top: 30%;
-	
+
 	-ms-transform: translate(0, -30%);
     -webkit-transform: translate(0, -30%);
     transform: translate(0, -30%);
@@ -2388,21 +2392,21 @@ $sizes: (
 .hcenter {
     left: 50%;
     margin-right: -50%;
-	
+
 	-ms-transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-	
-   
+
+
 }
 
 .vcenter {
 	top: 50%;
-	
+
 	-ms-transform: translate(0, -50%);
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
-		
+
 }
 
 .center {

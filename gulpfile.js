@@ -361,12 +361,13 @@ var serveFunc = function (done) {
 
 	console.log("serve task");
 
-	// livereload.listen({port:config.livereloadPort});
+	livereload.listen({port:config.livereloadPort});
 
 	var stream = nodemon({
 		script: path.join(__dirname, "server.js"),
 		ext:"js html css scss json",
-		watch:["./src", "config.js", "./backend"]
+		watch:["./src", "config.js", "./backend"],
+		tasks:["build"]
 	});
 
 
@@ -380,7 +381,7 @@ var serveFunc = function (done) {
 		setTimeout(function () {
 
 			try {
-				// livereload.reload();
+				livereload.reload();
 			}
 			catch (err) {
 				console.log("cannot livreload at this time", err);
@@ -399,9 +400,9 @@ var serveFunc = function (done) {
 	// })
 
 	stream.on('SIGINT', function () {
-			console.log("ctrl+c nodemon");
-			nodemon.emit('quit');
-			process.exit(0);
+		console.log("ctrl+c nodemon");
+		nodemon.emit('quit');
+		process.exit(0);
 	});
 
 	stream.on("crash", function () {
@@ -417,10 +418,10 @@ var serveFunc = function (done) {
 var serveFuncListen = function (done) {
 
 
-	var listener = server.app.listen(server.port, function () {
+	// var listener = server.app.listen(server.port, function () {
 
-		console.log("listening on port", listener.address().port);
-	});
+	// 	console.log("listening on port", listener.address().port);
+	// });
 
 
 	done();
@@ -431,10 +432,10 @@ var serveFuncListen = function (done) {
 var watch = function () {
 	livereload.listen({port:config.livereloadPort });
 	return gulp.watch([
-										"./src/**/*.*",
-										"./backend/**/*.js",
-										"!./src/app/**/*.test.js"
-										], gulp.series("listen"));
+		"./src/**/*.*",
+		"./backend/**/*.js",
+		"!./src/app/**/*.test.js"
+	], gulp.series("listen"));
 }
 
 

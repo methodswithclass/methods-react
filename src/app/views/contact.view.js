@@ -9,6 +9,7 @@ import React from 'react';
 import Navbtn from "../components/navbtn/Navbtn";
 import Navbar from "../components/navbar/Navbar";
 import Iconbtn from "../components/navbtn/Iconbtn";
+import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Parallax from "../components/parallax/Parallax";
 
@@ -24,6 +25,11 @@ import * as state from "../services/state.service";
 import * as api from "../services/api.ws.service";
 import * as data from "../services/data.service";
 
+
+var hidebutton = function () {
+
+	u.hideMenuButton("contactbody");
+}
 
 
 var getElem = function () {
@@ -51,47 +57,25 @@ var getElem = function () {
 	return (
 
 
-			<div className="relative width height scrollY cutoffX scroll-vertical-dark-narrow">
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="contactbody">
 
-				<Navbar></Navbar>
+		    <Navbar></Navbar>
 
-				<div className="relative width height-200 black-back">
+			<Header></Header>
 
-					<div className="absolute width80 height60 center">
+			<div className="relative width height-1000 blue4-back">
 
-						<div className="absolute width white right0 text-right font-70">
-							{u.getTitle2()}
-						</div>
-
-
-
-					</div>
-
-				</div>
-
-
-
-				<div className="relative width height-1000 blue4-back">
-
-				    <div className="absolute width60 height-400 center">
-				    	<div className="absolute width50 height center">
-				    		<Iconbtn name="Meet Chris" state="chris" icon="fa-user-check"></Iconbtn>
-				    	</div>
-				    </div>
-
+			    <div className="absolute width60 height-400 center">
+			    	<div className="absolute width50 height center">
+			    		<Iconbtn name="Meet Chris" state="chris" icon="fa-user-check"></Iconbtn>
+			    	</div>
 			    </div>
 
-				<div className="relative width">
+		    </div>
 
-			    	<Footer></Footer>
+		</div>
 
-			    </div>
-
-			</div>
-
-
-
-	    );
+	);
 }
 
 
