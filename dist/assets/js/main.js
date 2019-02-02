@@ -48442,6 +48442,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var menu = true;
 
+var hidebutton = function () {
+  _services_utility_service__WEBPACK_IMPORTED_MODULE_8__["hideMenuButton"]("appbody");
+};
+
 var getMenu = function () {
   if (menu) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbtn_Menu__WEBPACK_IMPORTED_MODULE_6__["default"], null));
@@ -48464,7 +48468,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       config: _services_state_service__WEBPACK_IMPORTED_MODULE_7__["configRouter"]
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, getMenu(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "absolute width height cutoff"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_3__["UIView"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null))))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_uirouter_react__WEBPACK_IMPORTED_MODULE_3__["UIView"], null))))));
   }
 
 }
@@ -51733,7 +51737,7 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "aboutbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -51746,7 +51750,7 @@ var getElem = function () {
     name: "What we do",
     state: "what",
     icon: "fa-laptop"
-  })))));
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 var About = function () {
@@ -51826,12 +51830,12 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "appsbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
-  }, getBlocks()));
+  }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 var Apps = function () {
@@ -51970,14 +51974,14 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "chrisbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width teal-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width80 hcenter"
-  }, getResume())));
+  }, getResume())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
 var Chris = function () {
@@ -52041,7 +52045,7 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "contactbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -52054,7 +52058,7 @@ var getElem = function () {
     name: "Meet Chris",
     state: "chris",
     icon: "fa-user-check"
-  })))));
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 var Contact = function () {
@@ -52135,12 +52139,12 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "hirebody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width"
-  }, getBlocks()));
+  }, getBlocks()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 var Hire = function () {
@@ -52218,7 +52222,7 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "homebody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -52239,7 +52243,7 @@ var getElem = function () {
     name: "About us",
     state: "about",
     icon: "fa-laptop"
-  }))))));
+  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
 };
 
 var Home = function () {
@@ -52315,7 +52319,7 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "loginbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -52324,7 +52328,7 @@ var getElem = function () {
     className: "relative width height-1000 blue3-back"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "absolute center font-50"
-  }, "Login Page"))));
+  }, "Login Page"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
 };
 
 var Login = function () {
@@ -52405,12 +52409,12 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "settingsbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "relative width height-1000 green4-back"
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
 };
 
 var Settings = function () {
@@ -52476,7 +52480,7 @@ var getElem = function () {
   } else {}
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "relative width height cutoffX scrollY scroll-vertical-dark-narrow",
+    className: "relative width height cutoffX scrollY scroll-vertical-dark-wide",
     onScroll: hidebutton,
     id: "whatbody"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -52497,7 +52501,7 @@ var getElem = function () {
     name: "Hire",
     state: "hire",
     icon: "fa-tools"
-  }))))));
+  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
 };
 
 var What = function () {

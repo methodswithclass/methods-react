@@ -16,6 +16,11 @@ import * as u from "./services/utility.service";
 var menu = true;
 
 
+var hidebutton = function () {
+
+	u.hideMenuButton("appbody");
+}
+
 var getMenu = function () {
 
 	if (menu) {
@@ -50,10 +55,10 @@ class App extends Component {
 						{getMenu()}
 
 						<div className="absolute width height cutoff">
+
 							<UIView/>
 
 
-		    				<Footer></Footer>
 						</div>
 
 

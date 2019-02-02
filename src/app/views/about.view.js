@@ -53,7 +53,7 @@ var getElem = function () {
 
 	return (
 
-	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-narrow" onScroll={hidebutton} id="aboutbody">
+	    <div className="relative width height cutoffX scrollY scroll-vertical-dark-wide" onScroll={hidebutton} id="aboutbody">
 
 		    <Navbar></Navbar>
 
@@ -67,6 +67,10 @@ var getElem = function () {
 			    	</div>
 			    </div>
 		    </div>
+
+
+
+		    <Footer></Footer>
 
 	    </div>
 
