@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import * as u from '../../services/utility.service';
 
 class Footer extends Component {
+  getCopyright() {
+    return new Date().getFullYear();
+  }
+
   render() {
     var font;
 
@@ -22,7 +26,7 @@ class Footer extends Component {
             font
           }
         >
-          &copy;2019 methods with class
+          &copy;{this.getCopyright()} methods with class
         </div>
       </div>
     );
