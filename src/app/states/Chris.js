@@ -4,29 +4,28 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Resume from '../components/resume/Resume';
 import * as u from '../services/utility.service';
-import * as state from '../services/state.service';
 import * as data from '../services/data.service';
 import bioPhoto from '../../assets/img/bio-photo3.jpg';
 import linkedin from '../../assets/img/linkedin.png';
 import resumeDoc from '../../assets/img/cpolito_201810.docx';
 
-var hidebutton = function () {
+const hidebutton = () => {
   u.hideMenuButton('chrisbody');
 };
 
-var email = function () {
+const email = () => {
   console.log('clicked email');
 
   window.location.href = 'mailto:chris@methodswithclass.com';
 };
 
-var resume = function () {
+const resume = () => {
   console.log('clicked resume');
 
   window.location.href = resumeDoc;
 };
 
-var getCard = function () {
+const Card = () => {
   var emailme = u.makeTitle('email me\nchris@methodswithclass.com', '\n');
 
   return (
@@ -63,77 +62,60 @@ var getCard = function () {
   );
 };
 
-var getResume = function () {
-  if (u.checkMobile()) {
-    return (
-      <div className="relative width">
-        <div className="relative width padding-v-50">{getCard()}</div>
-
-        <div className="relative width padding-v-50">
-          <div className="relative width90 hcenter margin-v-100 border white-back raised">
-            <Resume
-              contact={data.all.contact}
-              textfont="font-30"
-              title1font="font-50"
-              title2font="font-40"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="relative width">
-        <div className="relative inline width50">
-          <div className="relative width80 hcenter margin-v-100 border white-back raised">
-            <Resume
-              contact={data.all.contact}
-              textfont="font-15"
-              title1font="font-40"
-              title2font="font-30"
-            />
-          </div>
-        </div>
-
-        <div className="relative inline width40 margin-v-100 cell-top">
-          {getCard()}
-        </div>
-      </div>
-    );
-  }
-};
-
-var getElem = function () {
-  console.log('state name', state.getName());
-  console.log('check mobile', u.checkMobile());
-
-  if (u.checkMobile()) {
-    // <div className="relative width height-600 black-back" parallax name="top" scroll="body" top="true" inner="innerhome" adjustinner="false">
-    // <div className="absolute width-300 height-50">
-    // 					<Navbtn class="white-back black font-30 border raised-white" name="back" state="contact"></Navbtn>
-    // 				</div>
-  } else {
-  }
-
+const Chris = () => {
   return (
     <div
       className="relative width height cutoffX scrollY scroll-vertical-dark-wide"
       onScroll={hidebutton}
       id="chrisbody"
     >
-      <Navbar></Navbar>
+      <Navbar />
 
-      <Header></Header>
+      <Header />
 
       <div className="relative width teal-back">
-        <div className="relative width80 hcenter">{getResume()}</div>
+        <div className="relative width80 hcenter">
+          {u.checkMobile() ? (
+            <div className="relative width">
+              <div className="relative width padding-v-50">
+                <Card />
+              </div>
+
+              <div className="relative width padding-v-50">
+                <div className="relative width90 hcenter margin-v-100 border white-back raised">
+                  <Resume
+                    contact={data.all.contact}
+                    textfont="font-30"
+                    title1font="font-50"
+                    title2font="font-40"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="relative width">
+              <div className="relative inline width50">
+                <div className="relative width80 hcenter margin-v-100 border white-back raised">
+                  <Resume
+                    contact={data.all.contact}
+                    textfont="font-15"
+                    title1font="font-40"
+                    title2font="font-30"
+                  />
+                </div>
+              </div>
+
+              <div className="relative inline width40 margin-v-100 cell-top">
+                <Card />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };
 
-export var Chris = function () {
-  return getElem();
-};
+export default Chris;

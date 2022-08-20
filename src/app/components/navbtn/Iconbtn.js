@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FaUserCheck, FaLaptop, FaTablet, FaTools } from 'react-icons/fa';
-import { UISref, UISrefActive } from '@uirouter/react';
 import * as h from '../../services/history.service';
+import * as state from '../../services/state.service';
 
-var getIcon = function ($this) {
-  switch ($this.props.icon) {
+var getIcon = function (icon) {
+  switch (icon) {
     case 'user-check':
       return <FaUserCheck />;
     case 'laptop':
@@ -18,37 +18,33 @@ var getIcon = function ($this) {
   }
 };
 
-var clicked = function () {
+var clicked = (goToState) => () => {
   h.toggle(false);
+  // state.goto(goToState);
 };
 
-class Iconbtn extends Component {
-  render() {
-    return (
-      <UISrefActive class="active">
-        <UISref to={this.props.state}>
-          <div
-            className="absolute width80 height80 center raised rounded20 black-back pointer"
-            onClick={clicked}
-          >
-            <div className="absolute width height80 vcenter white">
-              <div className="relative width height50">
-                <div className="relative center text-center font-50">
-                  {getIcon(this)}
-                </div>
-              </div>
-
-              <div className="relative width height50">
-                <div className="relative center text-center font-30">
-                  {this.props.name}
-                </div>
-              </div>
+const Iconbtn = (props) => {
+  const { state: goToState, name, icon } = props;
+  return (
+    <a href={state.getUrl(goToState)}>
+      <div
+        className="absolute width80 height80 center raised rounded20 black-back pointer"
+        onClick={clicked(goToState)}
+      >
+        <div className="absolute width height80 vcenter white">
+          <div className="relative width height50">
+            <div className="relative center text-center font-50">
+              {getIcon(icon)}
             </div>
           </div>
-        </UISref>
-      </UISrefActive>
-    );
-  }
-}
+
+          <div className="relative width height50">
+            <div className="relative center text-center font-30">{name}</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  );
+};
 
 export default Iconbtn;

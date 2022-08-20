@@ -1,35 +1,49 @@
-var apps = [
+import evolve from '../../assets/story/evolvehuman_black.jpg';
+import gravity from '../../assets/story/gravity.jpg';
+import matrix from '../../assets/story/matrix2.jpg';
+import garfield from '../../assets/story/garfield.jpg';
+import home from '../../assets/story/home.jpg';
+import poetry from '../../assets/story/code-poetry.jpg';
+import coding from '../../assets/story/intense_coding.jpg';
+import procrast from '../../assets/story/procrastinate.jpg';
+import sad from '../../assets/story/sad.jpg';
+import life from '../../assets/story/lifeseems.jpg';
+import cry from '../../assets/story/hair.jpg';
+import html from '../../assets/story/javascript2.jpg';
+import end from '../../assets/story/trust2.jpg';
+
+const apps = [
   {
     id: 'evolve',
-    back: '../../../assets/img/evolvehuman_black.jpg',
+    back: evolve,
     description: `have you ever wanted to teach a robot<br>
 	to clean up after you? <br><br>
 	well my evolve site is for you`,
   },
   {
     id: 'gravity',
-    back: '../../../assets/img/gravity.jpg',
+    back: gravity,
     description: `gravity is a powerful thing. <br><br>
 	use it to pop bubbles as they wizz around your screen, or to balance an object in the right place.<br><br>
 	gravity has never been this fun`,
   },
 ];
 
-var blocks = [
+const blocks = [
   {
     id: 'code',
-    back: '../../../assets/img/matrix2.jpg',
+    back: matrix,
     description: `we offer code to the masses<br><br>
 	feast and be merry :-)`,
   },
   {
     id: 'hire',
-    back: '../../../assets/img/garfield.jpg',
+    back: garfield,
     description: "we're also programmers for hire",
   },
   {
     id: 'home',
-    back: '../../../assets/img/home.jpg',
+    back: home,
     description: `
 	and we come to your home and make it smart <br><br>
 
@@ -38,50 +52,50 @@ var blocks = [
   },
   {
     id: 'poetry',
-    back: '../../../assets/img/code-poetry.jpg',
+    back: poetry,
     description: `what we do is more than just <br><br>
 	source code production and client work`,
   },
   {
     id: 'intense',
-    back: '../../../assets/img/intense_coding.jpg',
+    back: coding,
     description: `we enjoy what we do<br><br>
 	and we do it a lot`,
   },
   {
     id: 'procrastinate',
-    back: '../../../assets/img/procrastinate.jpg',
+    back: procrast,
     description: 'so this never happens',
   },
   {
     id: 'sad',
-    back: '../../../assets/img/sad.jpg',
+    back: sad,
     description: 'but this always does',
   },
   {
     id: 'life',
-    back: '../../../assets/img/lifeseems.jpg',
+    back: life,
     description: 'even though life sometimes feels like this',
   },
   {
     id: 'cry',
-    back: '../../../assets/img/hair.jpg',
+    back: cry,
     description: `which sometimes makes us<br><br>
 	want to do this`,
   },
   {
     id: 'html',
-    back: '../../../assets/img/javascript2.jpg',
+    back: html,
     description: 'so instead we do this',
   },
   {
     id: 'end',
-    back: '../../../assets/img/trust2.jpg',
+    back: end,
     description: 'the end',
   },
 ];
 
-var contact = {
+const contact = {
   bio: `
 
 
@@ -192,7 +206,7 @@ var contact = {
   },
 };
 
-var addIndexesToArray = function (array) {
+const addIndexesToArray = (array) => {
   array.forEach(function (value, index) {
     value.index = index;
   });
@@ -200,7 +214,7 @@ var addIndexesToArray = function (array) {
 
 addIndexesToArray(blocks);
 
-export var all = {
+export const all = {
   apps: apps,
   blocks: blocks,
   contact: contact,

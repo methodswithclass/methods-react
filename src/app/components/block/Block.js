@@ -3,10 +3,6 @@ import * as u from '../../services/utility.service';
 
 var info;
 
-var getImage = (src) => {
-  return require(src);
-};
-
 var getId = function (name, $info) {
   return name + $info.id;
 };
@@ -96,7 +92,7 @@ class Block extends Component {
             <div className="absolute width120 height hcenter">
               <img
                 className="absolute width height-auto vcenter"
-                src={getImage(info.back)}
+                src={info.back}
               />
             </div>
             {chooseElem(info)};

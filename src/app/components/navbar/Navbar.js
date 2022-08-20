@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbtn from '../navbtn/Navbtn';
-import Settingsbtn from '../navbtn/Settingsbtn';
 import * as u from '../../services/utility.service';
 import * as h from '../../services/history.service';
 import * as state from '../../services/state.service';
 import icon from '../../../assets/img/methods_icon.png';
-
-var settings = false;
 
 var getState = function () {
   return h.getName();
 };
 
 var getBack = function () {
-  return h.getPrevious(h.getName());
+  // return h.getPrevious(h.getName());
+  return state.getBack();
 };
 
 var goHome = function () {
@@ -21,7 +19,7 @@ var goHome = function () {
 };
 
 var getBackButton = function () {
-  if (getState() != 'home') {
+  if (getState() !== 'home') {
     return (
       <div className="absolute width-200 height80 vcenter left-200 margin-h-20 pointer">
         <Navbtn
@@ -45,43 +43,27 @@ var getIcon = function () {
   );
 };
 
-var getSettings = function () {
-  // {getBackButton()}
+const Navbar = () => {
+  var font;
+  var height;
 
-  if (settings) {
-    return (
-      <div className="absolute width-100 height80 vcenter margin-h-20 right-400 pointer">
-        <Settingsbtn></Settingsbtn>
-      </div>
-    );
+  if (u.checkMobile()) {
+    font = 'font-50';
+    height = 'height-200';
+  } else {
+    font = 'font-20';
+    height = 'height-70';
   }
+
+  return (
+    <div className={'relative width white-back ' + height} id="navbar">
+      <div className={'absolute width90 height60 center ' + font}>
+        {getBackButton()}
+
+        {getIcon()}
+      </div>
+    </div>
+  );
 };
-
-class Navbar extends Component {
-  render() {
-    var font;
-    var height;
-
-    if (u.checkMobile()) {
-      font = 'font-50';
-      height = 'height-200';
-    } else {
-      font = 'font-20';
-      height = 'height-70';
-    }
-
-    return (
-      <div className={'relative width white-back ' + height} id="navbar">
-        <div className={'absolute width90 height60 center ' + font}>
-          {getBackButton()}
-
-          {getSettings()}
-
-          {getIcon()}
-        </div>
-      </div>
-    );
-  }
-}
 
 export default Navbar;

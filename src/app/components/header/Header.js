@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import * as u from '../../services/utility.service';
 import * as state from '../../services/state.service';
 
 var getHeader = function (font) {
-  if (state.getName() == 'home') {
+  if (state.getName() === 'home') {
     return (
       <div className="relative width height-600 black-back">
         <div className="absolute width height">
@@ -40,18 +40,16 @@ var getHeader = function (font) {
   }
 };
 
-class Header extends Component {
-  render() {
-    var font;
+const Header = () => {
+  var font;
 
-    if (u.checkMobile()) {
-      font = 'font-30';
-    } else {
-      font = 'font-15';
-    }
-
-    return <div className="relative width">{getHeader(font)}</div>;
+  if (u.checkMobile()) {
+    font = 'font-30';
+  } else {
+    font = 'font-15';
   }
-}
+
+  return <div className="relative width">{getHeader(font)}</div>;
+};
 
 export default Header;
