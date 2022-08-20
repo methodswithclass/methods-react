@@ -1,37 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import * as h from '../../services/history.service';
+import * as state from '../../services/state.service';
 
-import { UISref, UISrefActive } from '@uirouter/react';
+var clicked = (goToState) => () => {
+  h.changePreviousIndex(h.getName());
+  state.goto(goToState);
+};
 
-
-import '../../../assets/css/classes.css';
-
-
-import * as h from "../../services/history.service";
-
-var getIndex = function () {
-
-	h.changePreviousIndex(h.getName());
-}
-
-class Navbtn extends Component {
-
-    render() {
-        return (
-
-
-            <UISrefActive class="active">
-                <UISref to={this.props.state}>
-
-                    <div className={"absolute width height rounded10 pointer " + this.props.class} onClick={getIndex}>
-                        <div className="absolute center">{this.props.name}</div>
-                    </div>
-
-                </UISref>
-            </UISrefActive>
-
-
-        );
-    }
-}
+const Navbtn = (props) => {
+  const { state: goToState, name, class: className } = props;
+  return (
+    <div
+      className={'absolute width height rounded10 pointer ' + className}
+      onClick={clicked(goToState)}
+    >
+      <div className="absolute center">{name}</div>
+    </div>
+  );
+};
 
 export default Navbtn;
