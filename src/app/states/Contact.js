@@ -14,7 +14,7 @@ const email = () => {
 const resume = () => {
   console.log('clicked resume');
 
-  window.location.href = '/assets/img/cpolito_201810.docx';
+  window.location.href = '/assets/img/cpolito_202308.docx';
 };
 
 const Card = () => {
@@ -50,12 +50,12 @@ const Card = () => {
         </div>
       </div>
 
-      {/* <div
+      <div
         className="relative width80 height-50 raised hcenter margin-v-50 black-back white pointer rounded10"
         onClick={resume}
       >
         <div className="absolute center">resume.doc</div>
-      </div> */}
+      </div>
     </div>
   );
 };
