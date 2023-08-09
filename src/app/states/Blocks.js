@@ -1,38 +1,30 @@
-import React from 'react';
-import Navbar from '../components/navbar/Navbar';
-import Block from '../components/block/Block';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
-import * as data from '../services/data.service';
-import * as u from '../services/utility.service';
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/navbar';
+import Block from '../components/block';
+import Footer from '../components/footer';
+import { all } from '../services/data.service';
 
-const hidebutton = () => {
-  u.hideMenuButton('appsbody');
-};
+const Blocks = () => {
+  const [items, setItems] = useState([]);
 
-var getBlocks = function (type) {
-  return data.all[type].map((info) => {
-    return (
-      <div key={info.id} className="relative width">
-        <Block key={info.id} scroll="body" info={info}></Block>
-      </div>
-    );
-  });
-};
+  useEffect(() => {
+    const temp = [...all['apps'], ...all['blocks']];
+    setItems(temp);
+  }, []);
 
-const Blocks = (props) => {
-  const { type } = props;
   return (
-    <div
-      className="relative width height cutoffX scrollY scroll-vertical-dark-wide"
-      onScroll={hidebutton}
-      id="appsbody"
-    >
+    <div className="relative width height" id="appsbody">
       <Navbar />
 
-      <Header />
-
-      <div className="relative width">{getBlocks(type)}</div>
+      <div className="relative width">
+        {items?.map((info) => {
+          return (
+            <div key={info.id} className="relative width">
+              <Block key={info.id} scroll="body" info={info}></Block>
+            </div>
+          );
+        })}
+      </div>
 
       <Footer />
     </div>

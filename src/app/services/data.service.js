@@ -1,193 +1,162 @@
-import evolve from '../../assets/story/evolvehuman_black.jpg';
-import gravity from '../../assets/story/gravity.jpg';
-import matrix from '../../assets/story/matrix2.jpg';
-import garfield from '../../assets/story/garfield.jpg';
-import home from '../../assets/story/home.jpg';
-import poetry from '../../assets/story/code-poetry.jpg';
-import coding from '../../assets/story/intense_coding.jpg';
-import procrast from '../../assets/story/procrastinate.jpg';
-import sad from '../../assets/story/sad.jpg';
-import life from '../../assets/story/lifeseems.jpg';
-import cry from '../../assets/story/hair.jpg';
-import html from '../../assets/story/javascript2.jpg';
-import end from '../../assets/story/trust2.jpg';
-
 const apps = [
   {
     id: 'evolve',
-    back: evolve,
+    url: 'evolution.methodswithclass.com',
+    back: '/assets/story/evolvehuman_black.jpg',
     description: `have you ever wanted to teach a robot<br>
 	to clean up after you? <br><br>
-	well my evolve site is for you`,
+	the evolve site is for you`,
   },
-  {
-    id: 'gravity',
-    back: gravity,
-    description: `gravity is a powerful thing. <br><br>
-	use it to pop bubbles as they wizz around your screen, or to balance an object in the right place.<br><br>
-	gravity has never been this fun`,
-  },
+  // {
+  //   id: 'gravity',
+  //   url: 'gravity.methodswithclass.com',
+  //   back: '/assets/story/gravity.jpg',
+  //   description: `gravity is a powerful thing. <br><br>
+  // use it to pop bubbles as they wizz around your screen, or to balance an object in the right place.<br><br>
+  // gravity has never been this fun`,
+  // },
 ];
 
 const blocks = [
-  {
-    id: 'code',
-    back: matrix,
-    description: `we offer code to the masses<br><br>
-	feast and be merry :-)`,
-  },
-  {
-    id: 'hire',
-    back: garfield,
-    description: "we're also programmers for hire",
-  },
-  {
-    id: 'home',
-    back: home,
-    description: `
-	and we come to your home and make it smart <br><br>
+  // {
+  //   id: 'code',
+  //   back: '/assets/story/matrix2.jpg',
+  //   description: `we offer code to the masses<br><br>
+  // feast and be merry :-)`,
+  // },
+  // {
+  //   id: 'hire',
+  //   back: '/assets/story/garfield.jpg',
+  //   description: "we're also programmers for hire",
+  // },
+  // {
+  //   id: 'home',
+  //   back: '/assets/story/home.jpg',
+  //   description: `
+  // and we come to your home and make it smart <br><br>
 
-	cuz we're smart too
-	`,
-  },
+  // cuz we're smart too
+  // `,
+  // },
   {
     id: 'poetry',
-    back: poetry,
-    description: `what we do is more than just <br><br>
-	source code production and client work`,
+    back: '/assets/story/code-poetry.jpg',
+    description: `code is beautiful`,
   },
   {
     id: 'intense',
-    back: coding,
+    back: '/assets/story/intense_coding.jpg',
     description: `we enjoy what we do<br><br>
 	and we do it a lot`,
   },
   {
     id: 'procrastinate',
-    back: procrast,
+    back: '/assets/story/procrastinate.jpg',
     description: 'so this never happens',
   },
   {
     id: 'sad',
-    back: sad,
+    back: '/assets/story/sad.jpg',
     description: 'but this always does',
   },
   {
     id: 'life',
-    back: life,
+    back: '/assets/story/lifeseems.jpg',
     description: 'even though life sometimes feels like this',
   },
   {
     id: 'cry',
-    back: cry,
+    back: '/assets/story/hair.jpg',
     description: `which sometimes makes us<br><br>
 	want to do this`,
   },
   {
     id: 'html',
-    back: html,
+    back: '/assets/story/javascript2.jpg',
     description: 'so instead we do this',
   },
   {
     id: 'end',
-    back: end,
+    back: '/assets/story/trust2.jpg',
     description: 'the end',
   },
 ];
 
 const contact = {
   bio: `
+	Methods with Class is my project brand, I host several web apps and projects under this name.<br><br>
 
+	I'm a fullstack developer with experience with many languages and fraweworks.<br><br>
 
-	I am the developer for Methods with Class, LLC. We are a small firm dedicated to helping people and businesses with websites and home installations. <br><br>
+	I mostly use React on the frontend and AWS services on the backend.<br><br>
 
-	My main focus in development, for the moment, is on fullstack software for the web. What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br>
-
-	I'm an AWS developer as well, writing automated bash scripts, and doing other Linux development. I'm experienced in Agile methodologies.<br><br>
-
-
-	I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM and Bower registries.<br><br>
-
-
-	This process, preferrable to simply posting to GitHub, keeps my code in house and centralized, it makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, distribute my work to those who might want to use it for their own projects, and document it robustly. And some of my work is on Github anyway :)<br><br>
-
+	I maintain several sites, projects, and games listed below.<br><br>
 	`,
   skills: {
     title: 'Skills',
     items: [
-      'Software Development, Software Architecture, Software Abstraction',
-      'Software Automation, Software Engineering, Object Oriented Programming',
-      'Mobile Apps, Mobile Web, Responsive Design',
-      'User Experience, User Interface (UX/UI), interface design',
-      'Class Structures, Object Structures, Inheritance',
-      'Requirements Definition, Requirements Gathering, Requirements Managements',
-      'JavaScript, HTML, CSS, PHP, Objective C, Java, VBA, ActionScript, JSON, REST, MVC',
-      'iOS, Android, Unix',
-      'AngularJS, NodeJS, ExpressJS, Bootstrap, Git',
-      'Heroku, Netlify, Firebase',
-      'Write clean, Maintainable, Scalable, High-quality, High-performing code',
+      'Javascript, Html, css, sass',
+      'ReactJS, NodeJS, Git',
+      'Mobile Web, Responsive Design',
+      'UI/UX',
+      'OOP, Python, Java',
+      'AWS, CDK, Api Gateway, Cloudfront, Lambda, S3, DynamoDB, SQS, SNS',
+      'Machine Learning, evolutionary algorithms, neural networks',
       'site hosting, domain registration, DNS configuration',
-      'significant written communication and writing skills',
-      'other communication, interpersonal, leadership, mentorship',
-      'math, physics, engineering, motion dynamics, other technical skills',
+      'technical writing',
+      'math, physics, engineering',
     ],
   },
   projects: {
     title: 'Projects',
     items: [
-      {
-        title: 'Code',
-        href: 'code.methodswithclass.com',
-        description: 'Fully responsive, view on both desktop and mobile',
-        items: [
-          'Global CSS that can be applied to any project',
-          'Angular directive for parallax scrolling, accounts for any screen and image size',
-          'Angular service for firing events in one part of app from another part of app',
-          'Angular service for sending data from one part of app to another part of app',
-          'Angular directive for development console that prints JavaScript console entries to the screen for mobile debugging',
-          'Version system for all of the above so that I can update code but not break existing sites',
-        ],
-      },
+      // {
+      //   title: 'Code',
+      //   href: 'code.methodswithclass.com',
+      //   description: 'Fully responsive, view on both desktop and mobile',
+      //   items: [
+      //     'Global CSS that can be applied to any project',
+      //     'Angular directive for parallax scrolling, accounts for any screen and image size',
+      //     'Angular service for firing events in one part of app from another part of app',
+      //     'Angular service for sending data from one part of app to another part of app',
+      //     'Angular directive for development console that prints JavaScript console entries to the screen for mobile debugging',
+      //     'Version system for all of the above so that I can update code but not break existing sites',
+      //   ],
+      // },
       {
         title: 'Evolve',
-        href: 'evolve.methodswithclass.com',
+        href: apps[0].url,
         description: 'Fully responsive, view on both desktop and mobile',
         items: [
           'Artificial Intelligence, evolutionary programming, genetic algorithm (GA)',
-          'Developed generic GA software that uses generations of sets of solutions to induce machine learning for any given problem',
-          'Developed GA with enough abstraction to allow a multitude of learning problems to be addressed',
-          'Designed and Developed Angular web app demonstrate the machine learning capabilities of the GA',
-          'Designed architecture of the web app to deliver the bottom level GA software where necessary and handle the multiple learning problem implementations',
-          'State based navigation, single page web app, OOP design',
-          'Modular design, reusable code, heavy attention to organization and architecture',
-          'For “cleaning robot” program, machine learning algorithm teaches the program to improve performance by 30x in only 1000 generations',
+          'teaches a virtual robot to pick up trash in real time evolution of solution',
+          'React web app',
+          'AWS infrastructure, Api Gateway Websockets, Lambda, DynamoDb, S3',
         ],
       },
-      {
-        title: 'Gravity',
-        href: 'gravity.methodswithclass.com',
-        description:
-          'Requires a device with an accelerometer like a mobile device',
-        items: [
-          'Developed algorithm to handle device accelerometer data and filter it into usable data (velocity, position) in real time',
-          'Designed and developed Angular web app to demonstrate algorithm in use as a game to move a ball around on screen by moving and tilting the physical device around',
-          'Developed checks for access by app to the device accelerometer and gives proper warnings if they fail, also give warnings when screen rotates so that it can only be played in portrait (web version)',
-          'Developed platform to handle the development of different games that all use the same interaction principle based on original algorithm',
-          'Developed games to keep track of score, time, and arcade style graphics',
-          'Developed version for iPhone and Android web browsers with JavaScript Angular single page web app',
-          'Developed version for iPhone iOS native app in Objective-C',
-        ],
-      },
+      // {
+      //   title: 'Gravity',
+      //   href: apps[1].url,
+      //   description:
+      //     'Requires a device with an accelerometer like a mobile device',
+      //   items: [
+      //     'Developed algorithm to handle device accelerometer data and filter it into usable data (velocity, position) in real time',
+      //     'Designed and developed Angular web app to demonstrate algorithm in use as a game to move a ball around on screen by moving and tilting the physical device around',
+      //     'Developed checks for access by app to the device accelerometer and gives proper warnings if they fail, also give warnings when screen rotates so that it can only be played in portrait (web version)',
+      //     'Developed platform to handle the development of different games that all use the same interaction principle based on original algorithm',
+      //     'Developed games to keep track of score, time, and arcade style graphics',
+      //     'Developed version for iPhone and Android web browsers with JavaScript Angular single page web app',
+      //     'Developed version for iPhone iOS native app in Objective-C',
+      //   ],
+      // },
       {
         title: 'Unnecessary Theories',
-        href: 'www.unnecessarytheories.io',
+        href: 'www.unnecessarytheories.com',
         description: 'Fully responsive, view on both desktop and mobile',
         items: [
-          'Designed and Developed frontend blog site',
-          'Developed Angular I/O module to read .txt files that sit on server that allow population of blog text for each page',
-          'Developed technique using PHP to edit the index.php file meta data per request, this allows Facebook and other social media crawlers to automatically populate “share” objects just given a url, the result is the ability to share individual blog articles from a single page app with one index file and “one” set of meta data (found code, modified for my purposes)',
-          'Responsive design, mobile recognition, changes which view is served depending on device',
-          'AngularJS single page web app',
+          'blog site',
+          'React frontend, AWS infrastructure on backend',
+          'Api Gateway, Cloudfront, DynamoDb, S3',
         ],
       },
       {
@@ -195,11 +164,8 @@ const contact = {
         href: 'www.methodswithclass.com',
         description: 'Fully responsive, view on both desktop and mobile',
         items: [
-          'Designed and developed fullstack React/Node/Express single page application',
-          'Responsive design, mobile recognition, serves different html and parameters for different device types',
-          'State based navigation',
-          'Gulp build tools',
-          'Utilizes websocket technology',
+          'React frontend, AWS infrastructure on backend',
+          'Api Gateway, Cloudfront, S3',
         ],
       },
     ],
