@@ -65,6 +65,14 @@ html, body {
 	border-color:white;
 }
 
+.navBorder {
+  border-bottom: solid 4px rgb(0, 0, 90);
+}
+
+.navRaised {
+  box-shadow: 0 10px 20px #333;
+}
+
 
 /*#spinner {
 	transition: transform 2s linear;
