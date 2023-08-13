@@ -41,6 +41,7 @@ const Navbar = () => {
           <img
             className="absolute height width-auto center"
             src={`/assets/img/methods_icon.png`}
+            alt="methods with class icon"
           />
         </div>
 
@@ -52,6 +53,7 @@ const Navbar = () => {
             <img
               className={`absolute width height-auto center`}
               src={`/assets/img/bio-photo3.jpg`}
+              alt="bio"
             />
           </div>
         )}

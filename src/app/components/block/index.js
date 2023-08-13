@@ -8,13 +8,13 @@ const getId = (name, info) => {
 const clicked = (info) => {
   console.log('clicked', info.id);
 
-  window.open(`https://${info.url}`, '_blank');
+  window.open(`https://${info.url}`, '_blank', 'noopener,noreferrer');
 };
 
 const Element = (props) => {
   const { info } = props;
   const isMobile = checkMobile();
-  if (info.id == 'gravity') {
+  if (info.id === 'gravity') {
     return (
       <>
         {isMobile ? (
@@ -35,7 +35,7 @@ const Element = (props) => {
         )}
       </>
     );
-  } else if (info.id == 'evolve') {
+  } else if (info.id === 'evolve') {
     return (
       <>
         {isMobile ? (
@@ -106,6 +106,7 @@ const Block = (props) => {
                 isMobile ? 'width-auto height120' : 'width120 height-auto'
               } center`}
               src={info.back}
+              alt={info.alt}
             />
           </div>
           {<Element info={info} />};

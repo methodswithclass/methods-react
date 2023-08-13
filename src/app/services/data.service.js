@@ -42,6 +42,7 @@ const blocks = [
     id: 'poetry',
     back: '/assets/story/code-poetry.jpg',
     description: `code is beautiful`,
+    alt: 'poetry',
   },
   {
     id: 'intense',
@@ -49,21 +50,25 @@ const blocks = [
     description: `we enjoy what we do<br><br>
 	    and we do it a lot
     `,
+    alt: 'intense coding',
   },
   {
     id: 'procrastinate',
     back: '/assets/story/procrastinate.jpg',
     description: 'so this never happens',
+    alt: 'procrastinating',
   },
   {
     id: 'sad',
     back: '/assets/story/sad.jpg',
     description: 'but this always does',
+    alt: 'sad',
   },
   {
     id: 'life',
     back: '/assets/story/lifeseems.jpg',
     description: 'even though life sometimes feels like this',
+    alt: 'dull life',
   },
   {
     id: 'cry',
@@ -71,16 +76,19 @@ const blocks = [
     description: `which sometimes makes us<br><br>
 	    want to do this
     `,
+    alt: 'pulling hair out',
   },
   {
     id: 'html',
     back: '/assets/story/javascript2.jpg',
     description: 'so instead we do this',
+    alt: 'javascript',
   },
   {
     id: 'end',
     back: '/assets/story/trust2.jpg',
     description: 'the end',
+    alt: 'the end',
   },
 ];
 

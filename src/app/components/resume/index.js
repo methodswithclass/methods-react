@@ -13,13 +13,13 @@ const List = (props) => {
 };
 
 const getclass = (type, props) => {
-  if (type == 'text') {
+  if (type === 'text') {
     return 'relative width ' + props.textfont;
-  } else if (type == 'title1a') {
+  } else if (type === 'title1a') {
     return 'relative width font-bold ' + props.title1font;
-  } else if (type == 'title2a') {
+  } else if (type === 'title2a') {
     return 'relative width font-bold ' + props.title2font;
-  } else if (type == 'title2b') {
+  } else if (type === 'title2b') {
     return 'relative width padding-v-20 ' + props.title2font;
   }
 };
@@ -39,7 +39,11 @@ const Projects = (props) => {
             </div>
 
             <div className="relative width padding-v-20">
-              <a href={`https://${project.href}`} target="_blank">
+              <a
+                href={`https://${project.href}`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {project.href}
               </a>
             </div>
