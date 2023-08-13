@@ -31,6 +31,7 @@ const Card = () => {
           <img
             className="relative width height-auto hcenter"
             src={`/assets/img/bio-photo3.jpg`}
+            alt="bio"
           />
         </div>
       </div>
@@ -41,10 +42,12 @@ const Card = () => {
             className="relative nolink"
             href="https://www.linkedin.com/in/cpolito"
             target="_blank"
+            rel="noreferrer"
           >
             <img
               className="width height-auto"
               src={'/assets/img/linkedin.png'}
+              alt="linkedin icon"
             />
           </a>
         </div>
