@@ -5,28 +5,36 @@ const getId = (name, info) => {
   return `${name}${info.id}`;
 };
 
+const clicked = (info) => {
+  console.log('clicked', info.id);
+
+  window.open(`https://${info.url}`, '_blank');
+};
+
 const Element = (props) => {
   const { info } = props;
   const isMobile = checkMobile();
   if (info.id == 'gravity') {
-    // if (checkMobile()) {
-    //   return (
-    //     <div className="absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer">
-    //       <div className="absolute center font-25">
-    //         click here to play gravity
-    //       </div>
-    //     </div>
-    //   );
-    // } else {
-    //   return (
-    //     <div className="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
-    //       <div className="absolute center font-25">
-    //         visit on your mobile device to play
-    //       </div>
-    //     </div>
-    //   );
-    // }
-    return null;
+    return (
+      <>
+        {isMobile ? (
+          <div
+            className="absolute left-100 width-300 height-50 top60 black-back white rounded10 border-white pointer"
+            onClick={() => clicked(info)}
+          >
+            <div className="absolute center font-20">
+              click here to play gravity
+            </div>
+          </div>
+        ) : (
+          <div className="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
+            <div className="absolute center font-25">
+              use on a mobile device
+            </div>
+          </div>
+        )}
+      </>
+    );
   } else if (info.id == 'evolve') {
     return (
       <>
@@ -48,12 +56,6 @@ const Element = (props) => {
       </>
     );
   }
-};
-
-const clicked = (info) => {
-  console.log('clicked', info.id);
-
-  window.open(`https://${info.url}`, '_blank');
 };
 
 const Html = (props) => {

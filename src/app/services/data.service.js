@@ -7,14 +7,14 @@ const apps = [
 	to clean up after you? <br><br>
 	the evolve site is for you`,
   },
-  // {
-  //   id: 'gravity',
-  //   url: 'gravity.methodswithclass.com',
-  //   back: '/assets/story/gravity.jpg',
-  //   description: `gravity is a powerful thing. <br><br>
-  // use it to pop bubbles as they wizz around your screen, or to balance an object in the right place.<br><br>
-  // gravity has never been this fun`,
-  // },
+  {
+    id: 'gravity',
+    url: 'gravity.methodswithclass.com',
+    back: '/assets/story/gravity.jpg',
+    description: `gravity is a powerful thing. <br><br>
+        it has never been this fun
+    `,
+  },
 ];
 
 const blocks = [
@@ -47,7 +47,8 @@ const blocks = [
     id: 'intense',
     back: '/assets/story/intense_coding.jpg',
     description: `we enjoy what we do<br><br>
-	and we do it a lot`,
+	    and we do it a lot
+    `,
   },
   {
     id: 'procrastinate',
@@ -68,7 +69,8 @@ const blocks = [
     id: 'cry',
     back: '/assets/story/hair.jpg',
     description: `which sometimes makes us<br><br>
-	want to do this`,
+	    want to do this
+    `,
   },
   {
     id: 'html',
@@ -125,7 +127,7 @@ const contact = {
       // },
       {
         title: 'Evolve',
-        href: apps[0].url,
+        href: apps.find((item) => item.id === 'evolve')?.url,
         description: 'Fully responsive, view on both desktop and mobile',
         items: [
           'Artificial Intelligence, evolutionary programming, genetic algorithm (GA)',
@@ -134,21 +136,17 @@ const contact = {
           'AWS infrastructure, Api Gateway Websockets, Lambda, DynamoDb, S3',
         ],
       },
-      // {
-      //   title: 'Gravity',
-      //   href: apps[1].url,
-      //   description:
-      //     'Requires a device with an accelerometer like a mobile device',
-      //   items: [
-      //     'Developed algorithm to handle device accelerometer data and filter it into usable data (velocity, position) in real time',
-      //     'Designed and developed Angular web app to demonstrate algorithm in use as a game to move a ball around on screen by moving and tilting the physical device around',
-      //     'Developed checks for access by app to the device accelerometer and gives proper warnings if they fail, also give warnings when screen rotates so that it can only be played in portrait (web version)',
-      //     'Developed platform to handle the development of different games that all use the same interaction principle based on original algorithm',
-      //     'Developed games to keep track of score, time, and arcade style graphics',
-      //     'Developed version for iPhone and Android web browsers with JavaScript Angular single page web app',
-      //     'Developed version for iPhone iOS native app in Objective-C',
-      //   ],
-      // },
+      {
+        title: 'Gravity',
+        href: apps.find((item) => item.id === 'gravity')?.url,
+        description:
+          'Requires a device with an accelerometer like a mobile device',
+        items: [
+          'Engine that takes device accelerometer data, calculates position, and applies it to a DOM element',
+          'React frontend, AWS on backend',
+          'Cloudfront, S3',
+        ],
+      },
       {
         title: 'Unnecessary Theories',
         href: 'www.unnecessarytheories.com',

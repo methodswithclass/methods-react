@@ -39,7 +39,7 @@ const Projects = (props) => {
             </div>
 
             <div className="relative width padding-v-20">
-              <a href={`http://${project.href}`} target="_blank">
+              <a href={`https://${project.href}`} target="_blank">
                 {project.href}
               </a>
             </div>
