@@ -26,7 +26,9 @@
     "eject": "react-scripts eject",
     "start:dev": "env-cmd -f .env.dev npm start",
     "deploy:dev": "./deploy.sh dev",
-    "deploy:prod": "./deploy.sh prod"
+    "deploy:prod": "./deploy.sh prod",
+    "stylelint": "npx stylelint \"**/*.scss\"",
+    "stylelint:fix": "yarn stylelint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +49,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^10.0.0"
   }
 }

@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`relative width white-back navRaised navBorder ${height}`}
+      className={`relative width white-back nav-raised nav-border ${height}`}
       id="navbar"
     >
       <div className={`absolute width90 height center ${font}`}>
